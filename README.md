@@ -24,7 +24,9 @@ cd .venv/Scripts
 ```
 It is highly probable that you will get an error of some sort. For that you can refer here
 https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.3
-**Update this page for an easy command you can execute to make `./Activate.ps1`` work**
+
+For a quick and easy way of enabling scripts in powershell.
+```Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser```
 
 After that execute this command to install all the required packages
 ```
