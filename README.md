@@ -33,3 +33,11 @@ After that execute this command to install all the required packages
 pip install -r requirements.txt
 ```
 and you're done!
+
+## Getting Submodule Files
+Navigate to the parent directory of the submodule then,
+```
+git submodule init
+git submodule update
+```
+This way you can get all of the example code.
