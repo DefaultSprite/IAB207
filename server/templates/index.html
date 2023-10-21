@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Created Piano Performances"> 
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- Favicon and StyleSheet -->
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" href="static/img/Logo.ico">
+    <title>KeyMajor</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+    <main>
+        <nav class="navbar navbar-expand-xl fixed-top">
+            <div class="container-xxl">
+                <a class="navbar-brand" href="index.html">KeyMajor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="events-browser.html">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">My Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="event-creation.html">Create Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="event-bookings.html">Bookings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign Out</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+            </div>  
+        </nav>
+
+        <div class="banner py-3">
+            <div class="banner-content container-xxl">
+                <div class="row">
+                    <div class="banner-information col-auto">
+                        <h2>Remembering Ghibli Songs</h2>
+                        <p class="mb-0">Status: <span class="badge badge-open ms-md-1">Open</span></p>
+                        <p class="mb-0">Hosted by: Joe Hisaishi</p>
+                        <p class="mb-2">Tickets Available: 10,000</p>
+                        <a href="event-page.html" class="btn btn-primary">View Event</a>
+                    </div>
+
+                    <div class="col d-none d-sm-block">
+                        <a href="event-page.html"><img src="static/img/Studio_Ghibli_Logo.jpg" class="shadow float-end hover-scale square-image banner-image" alt="..."></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="container-xxl">
+        <div class="row">
+            <h2>Browse By Category</h2>
+        </div>
+        
+        <div class="category-browser">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col my-2 my-sm-0">
+                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="static/img/Frame.png" alt="Calm"></a>
+                        </div>
+        
+                        <div class="col my-2 my-sm-0">
+                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="static/img/Frame 1.png" alt="Anime"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col my-2 my-sm-0">
+                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="static/img/Frame 2.png" alt="Pop"></a>
+                        </div>
+        
+                        <div class="col my-2 my-sm-0">
+                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="static/img/Frame 3.png" alt="Classical"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xxl my-2">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Top Performances</h3>
+                <!-- First Section -->
+                <div class="row">
+                    <div class="col-sm col-md-12">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-3">
+                                    <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Remembering Ghibli Songs <span class="badge badge-closed ms-md-1">Closed</span></h5>
+                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
+                                        <p class="card-text mb-0"><small class="text-body-secondary">Hosted by: Joe Hisaishi</small></p>
+                                        <p class="card-text"><small class="text-body-secondary">Tickets Available: 10,000</small></p>
+                                        <a href="event-page.html" class="btn btn-primary">View Event</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm col-md-12">
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-3">
+                                    <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Remembering Ghibli Songs <span class="badge badge-inactive ms-md-1">Inactive</span></h5>
+                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
+                                        <p class="card-text mb-0"><small class="text-body-secondary">Hosted by: Joe Hisaishi</small></p>
+                                        <p class="card-text"><small class="text-body-secondary">Tickets Available: 10,000</small></p>
+                                        <a href="event-page.html" class="btn btn-primary">View Event</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="announcements col-lg-4">
+                <h2>Announcements</h2>
+
+                <div class="card my-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Setting up and renting a venue</h5>
+                        <p class="card-text">This goes in detail on how you can rent a venue for your performances.</p>
+                        <a href="#" class="card-link">Article Link</a>
+                    </div>
+                </div>
+    
+                <div class="card my-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Announcement 2</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quasi totam adipisci animi, eius neque.</p>
+                        <a href="#" class="card-link">Announcement link</a>
+                    </div>
+                </div>
+
+                <div class="card my-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Announcement 3</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quasi totam adipisci animi, eius neque.</p>
+                        <a href="#" class="card-link">Announcement link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer mt-5 bg-light">
+        <footer class="container-xxl p-2">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="fw-bold">About Us</h6>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum 
+                        asperiores impedit fuga sapiente natus libero pariatur! Quasi vel 
+                        quibusdam quaerat doloremque deserunt illo culpa adipisci impedit 
+                        voluptatum dignissimos! Quam, qui!
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Contact Us</h6>
+                    <ul class="list-unstyled">
+                        <li>0468134471</li>
+                        <li>Support@KeyMajor.com</li>
+                        <li>12 Imaginary Address 8141 Brisbane Australia </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Useful Links</h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link p-0" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link p-0" href="#">Events</a></li>
+                        <li class="nav-item"><a class="nav-link p-0" href="#">Create Event</a></li>
+                        <li class="nav-item"><a class="nav-link p-0" href="#">TrustPilot</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

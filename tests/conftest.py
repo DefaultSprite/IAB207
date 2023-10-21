@@ -1,3 +1,7 @@
+"""
+I want to preface, that tests are not that important for this assignment. Though are important to test if certain aspects of the website work.
+"""
+
 import sys
 import os
 import pytest
