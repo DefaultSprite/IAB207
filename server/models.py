@@ -31,10 +31,9 @@ class Event(db.Model):
     image = db.Column(db.String(400))
     venue_name = db.Column(db.String(80))
     address = db.Column(db.String(80))
+    ticket_cost = db.Column(db.Double)
     artist = db.Column(db.String(80))
     date_time = db.Column(db.DateTime)
-
-    image = db.Column(db.String(400))
     maxSeating = db.Column(db.Integer)
     currentSeating = db.Column(db.Integer)
     # ... Create the Comments db.relationship
