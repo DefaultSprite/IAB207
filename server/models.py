@@ -63,6 +63,7 @@ class TicketOrder(db.Model):
     __tablename__= 'Order'
     id = db.Column(db.Integer, primary_key=True)
     ticketNum = db.Column(db.Integer)
+    totalCost = db.Column(db.Double)
     Event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     def __repr__(self):
