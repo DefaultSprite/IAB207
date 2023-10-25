@@ -1,5 +1,5 @@
 from flask import Blueprint, request, render_template, session, request, redirect, url_for
-from .models import Event, Comment
+from .models import Event, EventStatus, Comment
 from .forms import EventForm
 from . import db
 import os
@@ -23,7 +23,11 @@ def eventcreation():
     # add the object to the db session
     db.session.add(event)
     # commit to the database
+    db.session.flush()
+    stat = EventStatus(Event_id=event.id, status='Active')
+    db.session.add(stat)
     db.session.commit()
+    
     print('Successfully created new travel destination', 'success')
     #Always end with redirect when form is valid
     return redirect(url_for('Event.eventcreation'))
