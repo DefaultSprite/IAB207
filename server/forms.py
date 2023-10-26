@@ -29,14 +29,14 @@ class EventForm(FlaskForm):
   #description meets the length requirements
   artist = StringField('Name of Artist/s', validators=[InputRequired()])
   description = TextAreaField('Description', validators = [InputRequired()])
-  ven_name = StringField('Name of Venue', validators=[InputRequired()])
+  venue_name = StringField('Name of Venue', validators=[InputRequired()])
   address = StringField('Address of Venue', validators=[InputRequired()])
-  cost = DecimalField('Cost of Ticket', validators=[InputRequired()])
-  date = DateTimeField('Date and Time of Event', 
+  ticket_cost = DecimalField('Cost of Ticket', validators=[InputRequired()])
+  date_time = DateTimeField('Date and Time of Event', 
                        validators=[InputRequired()], format='%Y-%m-%d %H:%M', 
                        render_kw={"placeholder":"yyyy-mm-dd hh:mm"})
-  capacity = IntegerField('Maximum Capacity of Venue', validators=[InputRequired()])
+  maxSeating = IntegerField('Maximum Capacity of Venue', validators=[InputRequired()])
   image = FileField('Destination Image', validators=[
     FileRequired(message = 'Image cannot be empty'),
     FileAllowed(ALLOWED_FILE, message='Only supports png, jpg, JPG, PNG')])
-  submit = SubmitField("Create")
+  submit = SubmitField("Create/Update")

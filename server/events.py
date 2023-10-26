@@ -34,6 +34,34 @@ def eventcreation():
   return render_template('events/eventcreation.html', form=form)
 
 
+@evbp.route('/update_event/<id>', methods=['GET','POST'])
+@login_required
+def update_event(id):
+  event = db.session.scalar(db.select(Event).where(Event.id==id))
+  form = EventForm(obj=event)
+
+  if form.validate_on_submit():
+    event.name = form.name.data
+    event.artist = form.artist.data
+    event.description = form.description.data
+    event.venue_name = form.venue_name.data
+    event.ticket_cost = form.ticket_cost.data
+    event.date_time = form.date_time.data
+    event.maxSeating = form.maxSeating.data
+    event.image = check_upload_file(form)
+    db.session.commit()
+    return redirect(url_for('Event.load_created_events'))
+  return render_template('events/eventcreation.html', form=form)
+  
+
+
+@evbp.route('/my_events', methods=['GET'])
+@login_required
+def load_created_events():
+  id=current_user.id
+  events = db.session.query(Event).filter(Event.creator_id==id)
+  return render_template('events/my_events.html', events = events)
+
 '''
 @evbp.route('/<id>')
 def show(id):
