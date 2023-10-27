@@ -36,7 +36,24 @@ class EventForm(FlaskForm):
                        validators=[InputRequired()], format='%Y-%m-%d %H:%M', 
                        render_kw={"placeholder":"yyyy-mm-dd hh:mm"})
   maxSeating = IntegerField('Maximum Capacity of Venue', validators=[InputRequired()])
-  image = FileField('Destination Image', validators=[
+  image = FileField('Event Image', validators=[
     FileRequired(message = 'Image cannot be empty'),
     FileAllowed(ALLOWED_FILE, message='Only supports png, jpg, JPG, PNG')])
-  submit = SubmitField("Create/Update")
+  submit = SubmitField("Create")
+
+class EventUpdateForm(FlaskForm):
+  name = StringField('Name of Event', validators=[InputRequired()])
+  # adding two validators, one to ensure input is entered and other to check if the 
+  #description meets the length requirements
+  artist = StringField('Name of Artist/s', validators=[InputRequired()])
+  description = TextAreaField('Description', validators = [InputRequired()])
+  venue_name = StringField('Name of Venue', validators=[InputRequired()])
+  address = StringField('Address of Venue', validators=[InputRequired()])
+  ticket_cost = DecimalField('Cost of Ticket', validators=[InputRequired()])
+  date_time = DateTimeField('Date and Time of Event', 
+                       validators=[InputRequired()], format='%Y-%m-%d %H:%M', 
+                       render_kw={"placeholder":"yyyy-mm-dd hh:mm"})
+  maxSeating = IntegerField('Maximum Capacity of Venue', validators=[InputRequired()])
+  image = FileField('Event Image (do not need to add file if not changing image)', validators=[
+    FileAllowed(ALLOWED_FILE, message='Only supports png, jpg, JPG, PNG')])
+  submit = SubmitField("Update")

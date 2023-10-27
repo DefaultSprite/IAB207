@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, session, request, redirect, url_for
 from .models import Event, EventStatus, Comment
-from .forms import EventForm
+from .forms import EventForm, EventUpdateForm
 from . import db
 import os
 from werkzeug.utils import secure_filename
@@ -17,9 +17,9 @@ def eventcreation():
     #call the function that checks and returns image
     db_file_path = check_upload_file(form)
     event = Event(creator_id=current_user.id, name=form.name.data, description=form.description.data, 
-                        image=db_file_path, venue_name=form.ven_name.data, address=form.address.data, 
-                        ticket_cost=form.cost.data, artist=form.artist.data, date_time=form.date.data, 
-                        maxSeating=form.capacity.data, currentSeating=0)
+                        image=db_file_path, venue_name=form.venue_name.data, address=form.address.data, 
+                        ticket_cost=form.ticket_cost.data, artist=form.artist.data, date_time=form.date_time.data, 
+                        maxSeating=form.maxSeating.data, currentSeating=0)
     # add the object to the db session
     db.session.add(event)
     # commit to the database
@@ -38,8 +38,7 @@ def eventcreation():
 @login_required
 def update_event(id):
   event = db.session.scalar(db.select(Event).where(Event.id==id))
-  form = EventForm(obj=event)
-
+  form = EventUpdateForm(obj=event)
   if form.validate_on_submit():
     event.name = form.name.data
     event.artist = form.artist.data
@@ -48,7 +47,8 @@ def update_event(id):
     event.ticket_cost = form.ticket_cost.data
     event.date_time = form.date_time.data
     event.maxSeating = form.maxSeating.data
-    event.image = check_upload_file(form)
+    if(form.image.data != event.image):
+      event.image = check_upload_file(form)
     db.session.commit()
     return redirect(url_for('Event.load_created_events'))
   return render_template('events/eventcreation.html', form=form)
