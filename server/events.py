@@ -18,7 +18,7 @@ def eventcreation():
     db_file_path = check_upload_file(form)
     event = Event(creator_id=current_user.id, name=form.name.data, description=form.description.data, 
                         image=db_file_path, venue_name=form.venue_name.data, address=form.address.data, 
-                        ticket_cost=form.ticket_cost.data, artist=form.artist.data, date_time=form.date_time.data, 
+                        ticket_cost=form.ticket_cost.data, artist=form.artist.data, date=form.date.data, time=form.time.data, 
                         maxSeating=form.maxSeating.data, currentSeating=0)
     # add the object to the db session
     db.session.add(event)
@@ -45,7 +45,8 @@ def update_event(id):
     event.description = form.description.data
     event.venue_name = form.venue_name.data
     event.ticket_cost = form.ticket_cost.data
-    event.date_time = form.date_time.data
+    event.date = form.date.data
+    event.time = form.time.data
     event.maxSeating = form.maxSeating.data
     if(form.image.data != event.image):
       event.image = check_upload_file(form)

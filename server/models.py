@@ -8,7 +8,9 @@ import enum
 class User(db.Model, UserMixin):
     __tablename__ = 'users' # good practice to specify table name
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), index=True, unique=True, nullable=False)
+    fname = db.Column(db.String(100), index=True, nullable=False)
+    lname = db.Column(db.String(100), index=True, nullable=False)
+    pnumber = db.Column(db.String(100), nullable=False)
     emailid = db.Column(db.String(100), index=True, nullable=False)
 	# password should never stored in the DB, an encrypted password is stored
 	# the storage should be at least 255 chars long, depending on your hashing algorithm
@@ -33,7 +35,8 @@ class Event(db.Model):
     address = db.Column(db.String(80))
     ticket_cost = db.Column(db.Double)
     artist = db.Column(db.String(80))
-    date_time = db.Column(db.DateTime)
+    date = db.Column(db.Date)
+    time = db.Column(db.Time)
     maxSeating = db.Column(db.Integer)
     currentSeating = db.Column(db.Integer)
     # ... Create the Comments db.relationship

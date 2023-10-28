@@ -8,24 +8,35 @@ from . import db
 # Create a blueprint - make sure all BPs have unique names
 auth_bp = Blueprint('auth', __name__)
 
+
+
+    
+
 @auth_bp.route('/register', methods=['GET', 'POST'])
 def register():
     register = RegisterForm()
     #the validation of form is fine, HTTP request is POST
     if (register.validate_on_submit()==True):
             #get username, password and email from the form
-            uname = register.user_name.data
+            fname = register.f_name.data
+            lname = register.l_name.data
             pwd = register.password.data
             email = register.email_id.data
+            pnum = register.p_number.data
             #check if a user exists
-            user = db.session.scalar(db.select(User).where(User.name==uname))
-            if user:#this returns true when user is not None
-                flash('Username already exists, please try another')
+            user = db.session.scalar(db.select(User).where(User.emailid==email))
+            number = pnum.replace(" ", "")
+            if((not len(number)==10) or (not number.isnumeric())):
+                flash('Invalid phone number')
                 return redirect(url_for('auth.register'))
+            if user:#this returns true when user is not None
+                flash('An account already exists for this email address.')
+                return redirect(url_for('auth.register'))
+            
             # don't store the password in plaintext!
             pwd_hash = generate_password_hash(pwd)
             #create a new User model object
-            new_user = User(name=uname, password_hash=pwd_hash, emailid=email)
+            new_user = User(fname=fname, lname = lname, pnumber = number, password_hash=pwd_hash, emailid=email)
             db.session.add(new_user)
             db.session.commit()
             #commit to the database and redirect to HTML page
@@ -40,9 +51,9 @@ def authenticate(): #view function
     login_form = LoginForm()
     error=None
     if(login_form.validate_on_submit()==True):
-        user_name = login_form.user_name.data
+        email = login_form.email.data
         password = login_form.password.data
-        u1 = User.query.filter_by(name=user_name).first()
+        u1 = User.query.filter_by(emailid=email).first()
         if u1 is None:
             error='Incorrect user name'
         elif not check_password_hash(u1.password_hash, password): # takes the hash and password
