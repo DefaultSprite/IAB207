@@ -1,6 +1,10 @@
+"""
+create_database (formerly known as createddatabase.py) creates the database.
+"""
+
 from server import db, create_app
 
-def create_database():
+def create_database() -> None:
     """
     This function creates a database. It firstly creates an App and assigns it's
     AppContent to ctx and pushes that AppContext to the current context so that
