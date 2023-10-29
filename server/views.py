@@ -8,3 +8,8 @@ main_bp = Blueprint('main', __name__)
 def index() -> str:
     events = db.session.scalars(db.select(Event))
     return render_template('index.html', events = events)
+
+@main_bp.route('/Events')
+def events():
+    events = db.session.scalars(db.select(Event))
+    return render_template('events-browser.html')

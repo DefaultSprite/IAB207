@@ -6,17 +6,20 @@ from flask_login import LoginManager
 
 db = SQLAlchemy()
 
-#create a function that creates a web application
+# create a function that creates a web application
 # a web server will run this web application
 def create_app() -> Flask:
+	"""
+	The `create_app` function is responsible for creating the web application.
+	This function is also the entry point of web servers. You can run it by
+	typing `Flask --app server run`. This function returns a Flask object.
+	"""
 	app = Flask(__name__)  # this is the name of the module/package that is calling this app
-	# Should be set to false in a production environment
-	app.debug = True
-	app.secret_key = 'somesecretkey'
-	#set the app configuration data 
+	app.debug = True # TODO: Set to false in production environment
+	app.secret_key = 'somesecretkey' # set the app configuration data 
 	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sitedata.sqlite'
-	#initialize db with flask app
-	db.init_app(app)
+
+	db.init_app(app) # initialize db with flask app
 
 	Bootstrap5(app)
 

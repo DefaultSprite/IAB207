@@ -16,316 +16,317 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
     </head>
-<body>
-    <nav class="navbar navbar-expand-xl fixed-top">
-        <div class="container-xxl">
-            <a class="navbar-brand" href="index.html">KeyMajor</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="events-browser.html">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">My Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="event-creation.html">Create Event</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="event-bookings.html">Bookings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Out</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                </form>
-            </div>
-        </div>  
-    </nav>
 
-    <div class="container-xxl mt-4">
-        <div class="row">
-            <div class="col-md-3"> <!-- Filter -->
-                <a class="btn btn-outline-primary w-100 mb-3" data-bs-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="filterCollapse" id="filter-btn">
-                    Show Filters
-                </a>
-                <div class="collapse" id="filterCollapse">
-                    <form action="">
-                        <div class="mb-2">
-                            <div class="row"> <!-- Price Section-->
-                                <p class="fw-bold mb-0">Ticket Price</p> 
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Up to $25
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        $25 to $50
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        $50 to $100
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        $100 to $200
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        $200 and Above
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-lg-6 pr-lg-1">
-                                    <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" placeholder="Min Price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    <body>
+        <nav class="navbar navbar-expand-xl fixed-top">
+            <div class="container-xxl">
+                <a class="navbar-brand" href="index.html">KeyMajor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="events-browser.html">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">My Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="event-creation.html">Create Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="event-bookings.html">Bookings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign Out</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+            </div>  
+        </nav>
+
+        <div class="container-xxl mt-4">
+            <div class="row">
+                <div class="col-md-3"> <!-- Filter -->
+                    <a class="btn btn-outline-primary w-100 mb-3" data-bs-toggle="collapse" href="#filterCollapse" role="button" aria-expanded="false" aria-controls="filterCollapse" id="filter-btn">
+                        Show Filters
+                    </a>
+                    <div class="collapse" id="filterCollapse">
+                        <form action="">
+                            <div class="mb-2">
+                                <div class="row"> <!-- Price Section-->
+                                    <p class="fw-bold mb-0">Ticket Price</p> 
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Up to $25
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            $25 to $50
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            $50 to $100
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            $100 to $200
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            $200 and Above
+                                        </label>
                                     </div>
                                 </div>
                                 
-                                <div class="col-lg-6 px-lg-1">
-                                    <div class="input-group input-group-sm mb-3">
-                                        <input type="text" class="form-control" placeholder="Max Price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                <div class="row">
+                                    <div class="col-lg-6 pr-lg-1">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control" placeholder="Min Price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-6 px-lg-1">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control" placeholder="Max Price" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-    
-                        <div class="mb-2">
-                            <div class="row"> <!-- Price Section-->
-                                <p class="fw-bold mb-0">Genre</p> 
+        
+                            <div class="mb-2">
+                                <div class="row"> <!-- Price Section-->
+                                    <p class="fw-bold mb-0">Genre</p> 
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Ragtime
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Boogie-Woogie
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Romantic
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Rock
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Blues
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Calm
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Anime
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Classical
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Pop
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="mb-2">
+                                <p class="fw-bold mb-0">Date Range</p>
                                 <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Ragtime
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="date" class="form-control" placeholder="From" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="date" class="form-control" placeholder="To" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="mb-2">
+                                <p class="fw-bold mb-0">Attendence Type</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        In Person
                                     </label>
                                 </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Boogie-Woogie
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Romantic
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Rock
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Blues
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Calm
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Anime
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Classical
-                                    </label>
-                                </div>
-                                <div>
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Pop
+        
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Online
                                     </label>
                                 </div>
                             </div>
-                        </div>
-    
-                        <div class="mb-2">
-                            <p class="fw-bold mb-0">Date Range</p>
-                            <div>
-                                <div class="input-group input-group-sm mb-3">
-                                    <input type="date" class="form-control" placeholder="From" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <div class="input-group input-group-sm mb-3">
-                                    <input type="date" class="form-control" placeholder="To" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="mb-2">
-                            <p class="fw-bold mb-0">Attendence Type</p>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    In Person
-                                </label>
-                            </div>
-    
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    Online
-                                </label>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
+
+                <div class="col-md-9"> <!-- Events -->
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-lg-3">
+                                <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="card-body">
+                                    <h5 class="card-title">Remembering Ghibli Songs<span class="badge badge-open ms-1">Open</span></h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
+                                    <p class="card-text mb-0"><small class="text-body-secondary">Hosted by: Joe Hisaishi</small></p>
+                                    <p class="card-text"><small class="text-body-secondary">Tickets Available: 10,000</small></p>
+                                    <a href="event-page.html" class="btn btn-primary">View Event</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-lg-3">
+                                <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="card-body">
+                                    <h5 class="card-title">Remembering Ghibli Songs<span class="badge badge-closed ms-1">Closed</span></h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
+                                    <p class="card-text mb-0"><small class="text-body-secondary">Hosted by: Joe Hisaishi</small></p>
+                                    <p class="card-text"><small class="text-body-secondary">Tickets Available: 10,000</small></p>
+                                    <a href="event-page.html" class="btn btn-primary">View Event</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-lg-3">
+                                <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="card-body">
+                                    <h5 class="card-title">Remembering Ghibli Songs<span class="badge badge-inactive ms-1">Inactive</span></h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
+                                    <p class="card-text mb-0"><small class="text-body-secondary">Hosted by: Joe Hisaishi</small></p>
+                                    <p class="card-text"><small class="text-body-secondary">Tickets Available: 10,000</small></p>
+                                    <a href="event-page.html" class="btn btn-primary">View Event</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-lg-3">
+                                <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="card-body">
+                                    <h5 class="card-title">Remembering Ghibli Songs<span class="badge badge-cancelled ms-1">Cancelled</span></h5>
+                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
+                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                    <a href="event-page.html" class="btn btn-primary">View Event</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                
+                </div> 
             </div>
-
-            <div class="col-md-9"> <!-- Events -->
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-lg-3">
-                            <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="card-body">
-                                <h5 class="card-title">Remembering Ghibli Songs<span class="badge badge-open ms-1">Open</span></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
-                                <p class="card-text mb-0"><small class="text-body-secondary">Hosted by: Joe Hisaishi</small></p>
-                                <p class="card-text"><small class="text-body-secondary">Tickets Available: 10,000</small></p>
-                                <a href="event-page.html" class="btn btn-primary">View Event</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-lg-3">
-                            <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="card-body">
-                                <h5 class="card-title">Remembering Ghibli Songs<span class="badge badge-closed ms-1">Closed</span></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
-                                <p class="card-text mb-0"><small class="text-body-secondary">Hosted by: Joe Hisaishi</small></p>
-                                <p class="card-text"><small class="text-body-secondary">Tickets Available: 10,000</small></p>
-                                <a href="event-page.html" class="btn btn-primary">View Event</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-lg-3">
-                            <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="card-body">
-                                <h5 class="card-title">Remembering Ghibli Songs<span class="badge badge-inactive ms-1">Inactive</span></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
-                                <p class="card-text mb-0"><small class="text-body-secondary">Hosted by: Joe Hisaishi</small></p>
-                                <p class="card-text"><small class="text-body-secondary">Tickets Available: 10,000</small></p>
-                                <a href="event-page.html" class="btn btn-primary">View Event</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-lg-3">
-                            <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="card-body">
-                                <h5 class="card-title">Remembering Ghibli Songs<span class="badge badge-cancelled ms-1">Cancelled</span></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
-                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                                <a href="event-page.html" class="btn btn-primary">View Event</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                        <a class="page-link">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            
-            </div> 
         </div>
-    </div>
 
-    <div class="footer mt-5 bg-light">
-        <footer class="container-xxl p-2">
-            <div class="row">
-                <div class="col-md-6">
-                    <h6 class="fw-bold">About Us</h6>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum 
-                        asperiores impedit fuga sapiente natus libero pariatur! Quasi vel 
-                        quibusdam quaerat doloremque deserunt illo culpa adipisci impedit 
-                        voluptatum dignissimos! Quam, qui!
-                    </p>
-                </div>
+        <div class="footer mt-5 bg-light">
+            <footer class="container-xxl p-2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">About Us</h6>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum 
+                            asperiores impedit fuga sapiente natus libero pariatur! Quasi vel 
+                            quibusdam quaerat doloremque deserunt illo culpa adipisci impedit 
+                            voluptatum dignissimos! Quam, qui!
+                        </p>
+                    </div>
 
-                <div class="col-md-3">
-                    <h6 class="fw-bold">Contact Us</h6>
-                    <ul class="list-unstyled">
-                        <li>0468134471</li>
-                        <li>Support@KeyMajor.com</li>
-                        <li>12 Imaginary Address 8141 Brisbane Australia </li>
-                    </ul>
-                </div>
+                    <div class="col-md-3">
+                        <h6 class="fw-bold">Contact Us</h6>
+                        <ul class="list-unstyled">
+                            <li>0468134471</li>
+                            <li>Support@KeyMajor.com</li>
+                            <li>12 Imaginary Address 8141 Brisbane Australia </li>
+                        </ul>
+                    </div>
 
-                <div class="col-md-3">
-                    <h6 class="fw-bold">Useful Links</h6>
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link p-0" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link p-0" href="#">Events</a></li>
-                        <li class="nav-item"><a class="nav-link p-0" href="#">Create Event</a></li>
-                        <li class="nav-item"><a class="nav-link p-0" href="#">TrustPilot</a></li>
-                    </ul>
+                    <div class="col-md-3">
+                        <h6 class="fw-bold">Useful Links</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link p-0" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link p-0" href="#">Events</a></li>
+                            <li class="nav-item"><a class="nav-link p-0" href="#">Create Event</a></li>
+                            <li class="nav-item"><a class="nav-link p-0" href="#">TrustPilot</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </footer>
-    </div>
-</body>
+            </footer>
+        </div>
+    </body>
 </html>
