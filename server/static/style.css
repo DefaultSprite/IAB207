@@ -1,0 +1,99 @@
+:root {
+    --bs-primary: #3592FF;
+}
+
+body {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins';
+    padding-top: 68px; /* recommended by bootstrap documentation to fit the navbar at the top */
+}
+
+h2 {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar { /* LOOK AT THESE CSS VARIABLES ONLY AVAILBLE INSIDE THE NAVBAR CLASS!!! */
+    --bs-navbar-brand-color: #3592FF;
+    --bs-navbar-brand-font-size: 28px;
+    --bs-navbar-brand-hover-color: #3592FF;
+    background-color: #ffffff;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.banner { /* LINEAR GRADIENTTT WHOOOOOOOHOOOO! */
+    background-image: linear-gradient(to left, #B2EDFF, #3592FF);
+}
+
+.banner-information {
+    color: #ffffff;
+}
+
+.banner-header {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.square-image {
+    aspect-ratio: 1 / 1; /* As long as you are not using internet explorer */
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.banner-image { /* sorry tutors, it's the easy way AND looks good on all devices :P */
+    width: 175px;
+    height: 175px; 
+}
+
+.comment-image {
+    width: 100px;
+    height: 100px;
+}
+
+.hover-scale {
+    transition: transform .2s;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.badge-open {
+    background-color:#1ee87f;
+}
+
+.badge-closed {
+    background-color: #DD0426;;
+}
+
+.badge-inactive {
+    background-color: #5B6057;
+}
+
+.badge-cancelled { 
+    background-color: #3592FF;
+}
+
+/* md */
+@media (max-width: 768px){
+    .banner-image {
+        display: none;
+    }
+
+    
+}
+
+/* sm */
+@media (max-width: 576px) {
+    .category-image {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+}
+
