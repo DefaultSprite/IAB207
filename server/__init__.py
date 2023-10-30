@@ -1,3 +1,5 @@
+import os
+
 #import flask - from the package import class
 from flask import Flask 
 from flask_bootstrap import Bootstrap5
@@ -14,15 +16,22 @@ def create_app(test_config = None) -> Flask:
 	This function is also the entry point of web servers. You can run it by
 	typing `Flask --app server run`. This function returns a Flask object.
 	"""
+
 	app = Flask(__name__)  # this is the name of the module/package that is calling this app
 	app.debug = True # TODO: Set to false in production environment
-	app.secret_key = 'somesecretkey' # set the app configuration data 
-	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sitedata.sqlite'
+	app.secret_key = 'secretdevkey' 
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sitedata.sqlite' # set the app configuration data 
 
 	if test_config is None:
 		app.config.from_pyfile('config.py', silent=True)
 	else:
 		app.config.from_mapping(test_config)
+
+	# ensure the instance folder exists
+	try:
+		os.makedirs(app.instance_path)
+	except OSError:
+		pass
 
 	db.init_app(app) # initialize db with flask app
 
