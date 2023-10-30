@@ -43,6 +43,7 @@ def update_event(id):
     event.name = form.name.data
     event.artist = form.artist.data
     event.description = form.description.data
+    event.tags = form.tags.data
     event.venue_name = form.venue_name.data
     event.ticket_cost = form.ticket_cost.data
     event.date = form.date.data

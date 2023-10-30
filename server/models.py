@@ -86,6 +86,5 @@ class EventStatus(db.Model):
     status = db.Column(Enum(Status))
 
     def __repr__(self):
-        print(self.status.value)
-        return self.status.value
+        return f"{self.status.value}"
 
