@@ -6,9 +6,16 @@ import os
 from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
 
-evbp = Blueprint('Event', __name__, url_prefix='/events')
+event_bp = Blueprint('Event', __name__, url_prefix='/events')
 
-@evbp.route('/eventcreation', methods=['GET', 'POST'])
+@destbp.route('/<id>')
+def show(id):
+    destination = db.session.scalar(db.select(Destination).where(Destination.id==id))
+    # create the comment form
+    form = CommentForm()    
+    return render_template('destinations/event-page.hmtl.html', destination=destination, form=form)
+
+@event_bp.route('/eventcreation', methods=['GET', 'POST'])
 @login_required
 def eventcreation():
 	print('Method type: ', request.method)
@@ -33,7 +40,7 @@ def eventcreation():
 		return redirect(url_for('Event.eventcreation'))
 	return render_template('events/eventcreation.html', form=form)
 
-@evbp.route('/update_event/<id>', methods=['GET','POST'])
+@event_bp.route('/update_event/<id>', methods=['GET','POST'])
 @login_required
 def update_event(id):
 	event = db.session.scalar(db.select(Event).where(Event.id==id))
@@ -53,7 +60,7 @@ def update_event(id):
 		return redirect(url_for('Event.load_created_events'))
 	return render_template('events/eventcreation.html', form=form)
 
-@evbp.route('/my_events', methods=['GET'])
+@event_bp.route('/my_events', methods=['GET'])
 @login_required
 def load_created_events():
 	id=current_user.id
@@ -82,7 +89,3 @@ def check_upload_file(form):
 	#save the file and return the db upload path  
 	fp.save(upload_path)
 	return db_upload_path
-
-
-
-

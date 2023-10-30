@@ -61,6 +61,6 @@ def create_app(test_config = None) -> Flask:
 	app.register_blueprint(auth.auth_bp)
 
 	from . import events
-	app.register_blueprint(events.evbp)
+	app.register_blueprint(events.event_bp)
 
 	return app

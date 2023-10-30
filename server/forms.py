@@ -63,3 +63,11 @@ class EventUpdateForm(FlaskForm):
 	image = FileField('Event Image (do not need to add file if not changing image)', validators=[
 		FileAllowed(ALLOWED_FILE, message='Only supports png, jpg, JPG, PNG')])
 	submit = SubmitField("Update")
+
+
+class CommentForm(FlaskForm):
+	"""
+	Comment Form for the Event Page.
+	"""
+	text = TextAreaField('Comment', [InputRequired()])
+	submit = SubmitField('Create')
