@@ -1,7 +1,7 @@
 from collections.abc import Mapping, Sequence
 from typing import Any
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField, DateField, TimeField, IntegerField, DecimalField
+from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField, DateField, TimeField, IntegerField, DecimalField, FieldList
 from wtforms.validators import InputRequired, Length, Email, EqualTo
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 
@@ -32,6 +32,7 @@ class EventForm(FlaskForm):
   #description meets the length requirements
   artist = StringField('Name of Artist/s', validators=[InputRequired()])
   description = TextAreaField('Description', validators = [InputRequired()])
+  tags = TextAreaField('Add tags', validators=[InputRequired()])
   venue_name = StringField('Name of Venue', validators=[InputRequired()])
   address = StringField('Address of Venue', validators=[InputRequired()])
   ticket_cost = DecimalField('Cost of Ticket', validators=[InputRequired()])
@@ -49,6 +50,7 @@ class EventUpdateForm(FlaskForm):
   #description meets the length requirements
   artist = StringField('Name of Artist/s', validators=[InputRequired()])
   description = TextAreaField('Description', validators = [InputRequired()])
+  tags = TextAreaField('Add tags (e.g Rock, ACDC)', validators=[InputRequired()])
   venue_name = StringField('Name of Venue', validators=[InputRequired()])
   address = StringField('Address of Venue', validators=[InputRequired()])
   ticket_cost = DecimalField('Cost of Ticket', validators=[InputRequired()])

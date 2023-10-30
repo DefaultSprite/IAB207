@@ -29,6 +29,7 @@ class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     creator_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     name = db.Column(db.String(80))
+    tags = db.Column(db.String(200))
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
     venue_name = db.Column(db.String(80))
@@ -39,6 +40,7 @@ class Event(db.Model):
     time = db.Column(db.Time)
     maxSeating = db.Column(db.Integer)
     currentSeating = db.Column(db.Integer)
+    
     # ... Create the Comments db.relationship
 	# relation to call destination.comments and comment.destination
     comments = db.relationship('Comment', backref='event')
@@ -84,5 +86,5 @@ class EventStatus(db.Model):
     status = db.Column(Enum(Status))
 
     def __repr__(self):
-        return f"Name: {self.status}"
+        return f"{self.status.value}"
 
