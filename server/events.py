@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, session, request, redirect, url_for
 from .models import Event, EventStatus, Comment
-from .forms import EventForm, EventUpdateForm
+from .forms import EventForm, EventUpdateForm, CommentForm
 from . import db
 import os
 from werkzeug.utils import secure_filename
@@ -8,12 +8,12 @@ from flask_login import login_required, current_user
 
 event_bp = Blueprint('Event', __name__, url_prefix='/events')
 
-@destbp.route('/<id>')
-def show(id):
-    destination = db.session.scalar(db.select(Destination).where(Destination.id==id))
-    # create the comment form
-    form = CommentForm()    
-    return render_template('destinations/event-page.hmtl.html', destination=destination, form=form)
+# @event_bp.route('/<id>')
+# def show(id):
+#     event = db.session.scalar(db.select(Event).where(Event.id==id))
+#     # create the comment form
+#     form = CommentForm()    
+#     return render_template('events/event-page.html', event=event, form=form)
 
 @event_bp.route('/eventcreation', methods=['GET', 'POST'])
 @login_required
@@ -66,15 +66,6 @@ def load_created_events():
 	id=current_user.id
 	events = db.session.query(Event).filter(Event.creator_id==id)
 	return render_template('events/my_events.html', events = events)
-
-'''
-@evbp.route('/<id>')
-def show(id):
-    event = db.session.scalar(db.select(Event).where(Event.id==id))
-    # create the comment form
-    cform = CommentForm()    
-    return render_template('events/show.html', event=event, form=cform)
-'''
 
 def check_upload_file(form):
 	#get file data from form  
