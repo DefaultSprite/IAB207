@@ -6,7 +6,7 @@ import os
 from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
 
-event_bp = Blueprint('Event', __name__, url_prefix='/events')
+event_bp = Blueprint('Event', __name__)
 
 # @event_bp.route('/<id>')
 # def show(id):
@@ -67,9 +67,8 @@ def load_created_events():
 	events = db.session.query(Event).filter(Event.creator_id==id)
 	return render_template('events/my_events.html', events = events)
 
-
-@event_bp.route('/event_browser', methods=['GET'])
-def load_event_browser():
+@event_bp.route('/events', methods=['GET'])
+def load_events():
 	events = db.session.scalars(db.select(Event))
 	return render_template('events-browser.html', events = events)
 

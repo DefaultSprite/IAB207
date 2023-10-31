@@ -22,17 +22,17 @@
         <!-- Navbar -->
             <nav class="navbar navbar-expand-xl fixed-top">
                 <div class="container-xxl">
-                    <a class="navbar-brand" href="{{ url_for('main.index') }}">KeyMajor</a>
+                    <a class="navbar-brand" href="{{ url_for('Main.index') }}">KeyMajor</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ url_for('main.index') }}">Home</a>
+                                <a class="nav-link active" aria-current="page" href="{{ url_for('Main.index') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('Event.load_event_browser') }}">Events</a>
+                                <a class="nav-link" href="{{ url_for('Event.load_events') }}">Events</a>
                             </li>
                             {% if current_user.is_authenticated %}
                             
@@ -118,16 +118,15 @@
                 <div class="col-md-3">
                     <h6 class="fw-bold">Useful Links</h6>
                     <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link p-0" href="{{ url_for('main.index') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link p-0" href="{{ url_for('Main.index') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link p-0" href="#">Events</a></li>
                         {% if current_user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link p-0" href="{{ url_for('Event.eventcreation') }}">Create Event</a></li>
+                        <li class="nav-item"><a class="nav-link p-0" href="{{ url_for('Event.event_creation') }}">Create Event</a></li>
                         <li class="nav-item"><a class="nav-link p-0" href="#">TrustPilot</a></li>
                         {% else %}
                         <li class="nav-item"><a class="nav-link p-0" href="{{ url_for('auth.authenticate') }}">Log in</a></li>
                         <li class="nav-item"><a class="nav-link p-0" href="{{ url_for('auth.register') }}">Register</a></li>
                         {% endif %}
-
                     </ul>
                 </div>
             </div>
