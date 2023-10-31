@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
     pnumber = db.Column(db.String(100), nullable=False)
     emailid = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
+    image = db.Column(db.String(400))
 
     comments = db.relationship('Comment', backref='user')
     created_event = db.relationship('Event', backref='user')
