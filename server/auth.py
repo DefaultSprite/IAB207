@@ -38,7 +38,7 @@ def register() -> (Response | str):
         db.session.add(new_user)
         db.session.commit()
         #commit to the database and redirect to HTML page
-        return redirect(url_for('Main.index'))
+        return redirect(url_for('main.index'))
     #the else is called when the HTTP request calling this page is a GET
     else:
         return render_template('user.html', form=register, heading='Register')
@@ -59,7 +59,7 @@ def authenticate() -> (Response | None | str): #view function
             error='Incorrect password'
         if error is None:
             login_user(u1)
-            return redirect(url_for('Main.index'))
+            return redirect(url_for('main.index'))
             #nextp = request.args.get('next') #this gives the url from where the login page was accessed
             #print(nextp)
 
@@ -77,4 +77,4 @@ def authenticate() -> (Response | None | str): #view function
 @login_required
 def logout() -> Response:
     logout_user()
-    return redirect(url_for('Main.index'))
+    return redirect(url_for('main.index'))

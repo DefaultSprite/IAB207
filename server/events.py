@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, session, request, redirect, url_for
-from .models import Event, EventStatus, Comment
-from .forms import EventForm, EventUpdateForm
+from .models import Event, EventStatus, Comment, Status
+from .forms import EventForm, EventUpdateForm, CommentForm
 from . import db
 import os
 from werkzeug.utils import secure_filename
@@ -17,52 +17,51 @@ event_bp = Blueprint('event', __name__)
 
 @event_bp.route('/event_creation', methods=['GET', 'POST'])
 @login_required
-def eventcreation():
-  print('Method type: ', request.method)
-  form = EventForm()
-  if form.validate_on_submit():
-    #call the function that checks and returns image
-    db_file_path = check_upload_file(form)
-    event = Event(creator_id=current_user.id, name=form.name.data, description=form.description.data, 
-                        image=db_file_path, venue_name=form.venue_name.data, address=form.address.data, 
-                        ticket_cost=form.ticket_cost.data, artist=form.artist.data, date=form.date.data, time=form.time.data, 
-                        maxSeating=form.maxSeating.data, currentSeating=0)
-    # add the object to the db session
-    db.session.add(event)
-    # commit to the database
-    db.session.flush()
-    stat = EventStatus(Event_id=event.id, status='Active')
-    db.session.add(stat)
-    db.session.commit()
-    
-    print('Successfully created new travel destination', 'success')
-    #Always end with redirect when form is valid
-    return redirect(url_for('Event.eventcreation'))
-  return render_template('events/eventcreation.html', form=form)
+def event_creation():
+	print('Method type: ', request.method)
+	form = EventForm()
+	if form.validate_on_submit():
+		#call the function that checks and returns image
+		db_file_path = check_upload_file(form)
+		event = Event(creator_id=current_user.id, name=form.name.data, description=form.description.data, 
+							image=db_file_path, venue_name=form.venue_name.data, address=form.address.data, 
+							ticket_cost=form.ticket_cost.data, artist=form.artist.data, date=form.date.data, time=form.time.data, 
+							maxSeating=form.maxSeating.data, currentSeating=0)
+		# add the object to the db session
+		db.session.add(event)
+		# commit to the database
+		db.session.flush()
+		stat = EventStatus(Event_id=event.id, status=Status.a)
+		db.session.add(stat)
+		db.session.commit()
+		
+		print('Successfully created new travel destination', 'success')
+		#Always end with redirect when form is valid
+		return redirect(url_for('event.event_creation'))
+	return render_template('events/event-creation.html', form=form)
 
 @event_bp.route('/update_event/<id>', methods=['GET','POST'])
 @login_required
 def update_event(id):
-  event = db.session.scalar(db.select(Event).where(Event.id==id))
-  form = EventUpdateForm(obj=event)
-  if form.validate_on_submit():
-    event.name = form.name.data
-    event.artist = form.artist.data
-    event.description = form.description.data
-    event.venue_name = form.venue_name.data
-    event.ticket_cost = form.ticket_cost.data
-    event.date = form.date.data
-    event.time = form.time.data
-    event.maxSeating = form.maxSeating.data
-    if(form.image.data != event.image):
-      event.image = check_upload_file(form)
-    db.session.commit()
-    return redirect(url_for('Event.load_created_events'))
-  return render_template('events/eventcreation.html', form=form)
-  
+	event = db.session.scalar(db.select(Event).where(Event.id==id))
+	form = EventUpdateForm(obj=event)
+	if form.validate_on_submit():
+		event.name = form.name.data
+		event.artist = form.artist.data
+		event.description = form.description.data
+		event.venue_name = form.venue_name.data
+		event.ticket_cost = form.ticket_cost.data
+		event.date = form.date.data
+		event.time = form.time.data
+		event.maxSeating = form.maxSeating.data
+		if(form.image.data != event.image):
+			event.image = check_upload_file(form)
+			db.session.commit()
+			return redirect(url_for('Event.load_created_events'))
+	return render_template('events/event-creation.html', form=form)
 
 
-@evbp.route('/my_events', methods=['GET'])
+@event_bp.route('/my_events', methods=['GET'])
 @login_required
 def load_created_events():
 	id=current_user.id
