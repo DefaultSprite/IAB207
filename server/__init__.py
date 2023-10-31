@@ -47,5 +47,3 @@ def create_app():
 	app.register_blueprint(events.evbp)
 
 	return app
-
-app = create_app()
