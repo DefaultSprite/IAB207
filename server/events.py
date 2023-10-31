@@ -6,7 +6,7 @@ import os
 from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
 
-event_bp = Blueprint('Event', __name__)
+event_bp = Blueprint('event', __name__)
 
 # @event_bp.route('/<id>')
 # def show(id):
@@ -68,9 +68,16 @@ def load_created_events():
 	return render_template('events/my_events.html', events = events)
 
 @event_bp.route('/events', methods=['GET'])
-def load_events():
+def load_events(): # Ambiguity between load_events and load_events. Not good in practice
 	events = db.session.scalars(db.select(Event))
 	return render_template('events-browser.html', events = events)
+
+@event_bp.route('/events/<id>')
+def show(id):
+    destination = db.session.scalar(db.select(Event).where(Event.id==id))
+    # create the comment form
+    form = CommentForm()    
+    return render_template('events/event-page.html', destination=destination, form=form)
 
 def check_upload_file(form):
 	#get file data from form  

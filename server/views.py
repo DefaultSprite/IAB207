@@ -2,7 +2,7 @@ from flask import Blueprint, request, render_template, session,  redirect, url_f
 from .models import Event
 from . import db
 
-main_bp = Blueprint('Main', __name__)
+main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/')
 def index() -> str:
