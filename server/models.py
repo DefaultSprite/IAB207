@@ -32,6 +32,7 @@ class Event(db.Model):
     creator_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     name = db.Column(db.String(80))
     description = db.Column(db.String(200))
+    tags = db.Column(db.String(200))
     image = db.Column(db.String(400))
     venue_name = db.Column(db.String(80))
     address = db.Column(db.String(80))
