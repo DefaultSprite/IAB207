@@ -1,5 +1,5 @@
 from flask import Blueprint, request, render_template, session, request, redirect, url_for
-from .models import Event, EventStatus, Comment
+from .models import Event, EventStatus, Comment, Status
 from .forms import EventForm, EventUpdateForm, CommentForm
 from . import db
 import os
@@ -17,7 +17,7 @@ event_bp = Blueprint('event', __name__)
 
 @event_bp.route('/event_creation', methods=['GET', 'POST'])
 @login_required
-def eventcreation():
+def event_creation():
 	print('Method type: ', request.method)
 	form = EventForm()
 	if form.validate_on_submit():
@@ -31,14 +31,14 @@ def eventcreation():
 		db.session.add(event)
 		# commit to the database
 		db.session.flush()
-		stat = EventStatus(Event_id=event.id, status='Active')
+		stat = EventStatus(Event_id=event.id, status=Status.a)
 		db.session.add(stat)
 		db.session.commit()
 		
 		print('Successfully created new travel destination', 'success')
 		#Always end with redirect when form is valid
-		return redirect(url_for('Event.eventcreation'))
-	return render_template('events/eventcreation.html', form=form)
+		return redirect(url_for('event.event_creation'))
+	return render_template('events/event-creation.html', form=form)
 
 @event_bp.route('/update_event/<id>', methods=['GET','POST'])
 @login_required
@@ -58,7 +58,7 @@ def update_event(id):
 			event.image = check_upload_file(form)
 			db.session.commit()
 			return redirect(url_for('Event.load_created_events'))
-	return render_template('events/eventcreation.html', form=form)
+	return render_template('events/event-creation.html', form=form)
 
 
 @event_bp.route('/my_events', methods=['GET'])

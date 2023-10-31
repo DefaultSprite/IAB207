@@ -44,7 +44,7 @@ class Event(db.Model):
 
     comments = db.relationship('Comment', backref='event')
     orders = db.relationship('TicketOrder', backref='event')
-    stat = db.relationship('EventStatus', backref='event')
+    status = db.relationship('EventStatus', backref='event')
 	
     # string print method
     def __repr__(self) -> str:
@@ -89,5 +89,5 @@ class EventStatus(db.Model):
     status = db.Column(Enum(Status))
 
     def __repr__(self) -> str:
-        return f"Name: {self.status}"
+        return f"{self.status.value}"
 
