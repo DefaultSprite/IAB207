@@ -16,313 +16,314 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
     </head>
-<body>
-    <nav class="navbar navbar-expand-xl fixed-top">
+
+    <body>
+        <nav class="navbar navbar-expand-xl fixed-top">
+            <div class="container-xxl">
+                <a class="navbar-brand" href="index.html">KeyMajor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="events-browser.html">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">My Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="event-creation.html">Create Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="event-bookings.html">Bookings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign Out</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+            </div>  
+        </nav>
+
         <div class="container-xxl">
-            <a class="navbar-brand" href="index.html">KeyMajor</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="events-browser.html">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">My Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="event-creation.html">Create Event</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="event-bookings.html">Bookings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Out</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                </form>
-            </div>
-        </div>  
-    </nav>
-
-    <div class="container-xxl">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2>Remembering Ghibli Songs</h2>
-                <div class="event-information mb-2">
-                    <p class="mb-0">Status: <span class="badge badge-open ms-1">Open</span></p>
-                    <p class="mb-0">Tickets Available: 15,000</p>
-                    <p class="mb-0">Hosted by: Joe Hisaishi</p>
-                    <hr>
-                </div>
-                
-
-                <h3>Event Summary</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, et accusantium necessitatibus sapiente ab enim repudiandae veritatis magnam minima repellat suscipit nulla sunt nam ut voluptates quas quisquam voluptate ea.</p>
-                <p>You could also put the benefits of each type of ticket in here as well, though that might change in the future.</p>
-
-                <h3>Featured Songs</h3>
-                <div class="ratio ratio-16x9 mb-2">
-                    <iframe src="https://www.youtube.com/embed/G1mWfvbcjcI" title="Merry go round of life   Howl&#39;s moving catsle OST for Meow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-
-                <div class="ratio ratio-16x9 mb-2">
-                    <iframe src="https://www.youtube.com/embed/lg4i5xCMJpI" title="YouTube video" allowfullscreen></iframe>
-                </div>
-            </div>
-    
-            <div class="col-lg-4">
-                <h2>Ticket Types</h2>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Ticket Type 1</h5>
-                        <div class="div">
-                            <p class="card-text mb-0"><small class="text-body-secondary">Standing Seats</small></p>
-                            <p class="card-text mb-0"><small class="text-body-secondary">Tickets Left: 5,000</small></p>
-                            <p class="card-text mb-0"><small class="text-body-secondary">Price: $125</small></p>
-                        </div>
-                        
-                        <a class="btn btn-primary mt-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                            Purchase Ticket
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Ticket Type 1</h5>
-                        <div class="div">
-                            <p class="card-text mb-0"><small class="text-body-secondary">Standing Seats</small></p>
-                            <p class="card-text mb-0"><small class="text-body-secondary">Tickets Left: 5,000</small></p>
-                            <p class="card-text mb-0"><small class="text-body-secondary">Price: $125</small></p>
-                        </div>
-                        
-                        <a class="btn btn-primary mt-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                            Purchase Ticket
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Ticket Type 1</h5>
-                        <div class="div">
-                            <p class="card-text mb-0"><small class="text-body-secondary">Standing Seats</small></p>
-                            <p class="card-text mb-0"><small class="text-body-secondary">Tickets Left: 5,000</small></p>
-                            <p class="card-text mb-0"><small class="text-body-secondary">Price: $125</small></p>
-                        </div>
-                        
-                        <a class="btn btn-primary mt-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                            Purchase Ticket
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <hr>
-    </div>
-
-    <div class="container-xxl"> <!-- Comment Box -->
-        <div>
-            <h2>Write a Comment for "Remembering Ghibli Songs"</h2>
-            <p>Write your thoughts about the event, what you liked/disliked about it and possibly what could have been done better.</p>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <div class="row mb-2">
-                    <div class="col-2 col-md-12">
-                        <img src="static/img/user-image.jpeg" alt="User Image" class="square-image w-100 rounded">
-                    </div>
-                    <div class="col-auto d-flex align-items-center justify-content-start">
-                        <div class="col-md-12">
-                            <p class="fw-bold mb-0">GortCapybara</p>
-                            <p><small class="text-body-secondary">8 reviews on account</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-10">
-                <form action="">
-                    <textarea class="form-control mb-2" id="exampleFormControlTextarea1" rows="12" placeholder="Content"></textarea>
-                    <button class="btn btn-primary float-end">Post Comment</button>
-                </form>
-            </div>
-        </div>
-        <hr>
-    </div>
-
-
-    <div class="container-xxl"> <!-- Comments -->
-        <h2>Comments</h2>
-        <div class="comment">
             <div class="row">
-                <div class="col-auto">
-                    <img src="static/img/user-image.jpeg" alt="User Image" class="square-image comment-image rounded">
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-auto">
-                            <p class="fw-bold mb-0">NotGortCapybara</p>
-                        </div>
-                        <div class="col">
-                            <small class="text-body-secondary">12 Hours ago</small></p>
-                        </div>
+                <div class="col-lg-8">
+                    <h2>Remembering Ghibli Songs</h2>
+                    <div class="event-information mb-2">
+                        <p class="mb-0">Status: <span class="badge badge-open ms-1">Open</span></p>
+                        <p class="mb-0">Tickets Available: 15,000</p>
+                        <p class="mb-0">Hosted by: Joe Hisaishi</p>
+                        <hr>
                     </div>
-                        
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, velit in non enim molestiae totam repellendus adipisci, ab iste consequatur, cum ipsam quis recusandae. Illum dolores laborum quis a suscipit!</p> 
-                </div>
-            </div>
-        </div>
-
-        <div class="comment">
-            <div class="row">
-                <div class="col-auto">
-                    <img src="static/img/user-image.jpeg" alt="User Image" class="square-image comment-image rounded">
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-auto">
-                            <p class="fw-bold mb-0">NotGortCapybara</p>
-                        </div>
-                        <div class="col">
-                            <small class="text-body-secondary">12 Hours ago</small></p>
-                        </div>
-                    </div>
-                        
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, velit in non enim molestiae totam repellendus adipisci, ab iste consequatur, cum ipsam quis recusandae. Illum dolores laborum quis a suscipit!</p> 
-                </div>
-            </div>
-        </div>
-
-        <div class="comment">
-            <div class="row">
-                <div class="col-auto">
-                    <img src="static/img/user-image.jpeg" alt="User Image" class="square-image comment-image rounded">
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col-auto">
-                            <p class="fw-bold mb-0">NotGortCapybara</p>
-                        </div>
-                        <div class="col">
-                            <small class="text-body-secondary">12 Hours ago</small></p>
-                        </div>
-                    </div>
-                        
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, velit in non enim molestiae totam repellendus adipisci, ab iste consequatur, cum ipsam quis recusandae. Illum dolores laborum quis a suscipit!</p> 
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Offcanvas Payment Screen -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Checkout</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-
-        <div class="offcanvas-body">
-            <form>
-                <div class="offcanvas-title mb-3">
-                    <h5>Remembering Ghibli Songs</h5>
-                    <img src="static/img/Studio_Ghibli_Logo.jpg" class="w-100 mb-3 rounded">
-                    <input type="number" id="typeNumber" class="form-control" placeholder="Quantity"/>
                     
-                    <div class="my-3">
+
+                    <h3>Event Summary</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, et accusantium necessitatibus sapiente ab enim repudiandae veritatis magnam minima repellat suscipit nulla sunt nam ut voluptates quas quisquam voluptate ea.</p>
+                    <p>You could also put the benefits of each type of ticket in here as well, though that might change in the future.</p>
+
+                    <h3>Featured Songs</h3>
+                    <div class="ratio ratio-16x9 mb-2">
+                        <iframe src="https://www.youtube.com/embed/G1mWfvbcjcI" title="Merry go round of life   Howl&#39;s moving catsle OST for Meow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="ratio ratio-16x9 mb-2">
+                        <iframe src="https://www.youtube.com/embed/lg4i5xCMJpI" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                </div>
+        
+                <div class="col-lg-4">
+                    <h2>Ticket Types</h2>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Ticket Type 1</h5>
+                            <div class="div">
+                                <p class="card-text mb-0"><small class="text-body-secondary">Standing Seats</small></p>
+                                <p class="card-text mb-0"><small class="text-body-secondary">Tickets Left: 5,000</small></p>
+                                <p class="card-text mb-0"><small class="text-body-secondary">Price: $125</small></p>
+                            </div>
+                            
+                            <a class="btn btn-primary mt-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                                Purchase Ticket
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Ticket Type 1</h5>
+                            <div class="div">
+                                <p class="card-text mb-0"><small class="text-body-secondary">Standing Seats</small></p>
+                                <p class="card-text mb-0"><small class="text-body-secondary">Tickets Left: 5,000</small></p>
+                                <p class="card-text mb-0"><small class="text-body-secondary">Price: $125</small></p>
+                            </div>
+                            
+                            <a class="btn btn-primary mt-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                                Purchase Ticket
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Ticket Type 1</h5>
+                            <div class="div">
+                                <p class="card-text mb-0"><small class="text-body-secondary">Standing Seats</small></p>
+                                <p class="card-text mb-0"><small class="text-body-secondary">Tickets Left: 5,000</small></p>
+                                <p class="card-text mb-0"><small class="text-body-secondary">Price: $125</small></p>
+                            </div>
+                            
+                            <a class="btn btn-primary mt-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                                Purchase Ticket
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+
+        <div class="container-xxl"> <!-- Comment Box -->
+            <div>
+                <h2>Write a Comment for "Remembering Ghibli Songs"</h2>
+                <p>Write your thoughts about the event, what you liked/disliked about it and possibly what could have been done better.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="row mb-2">
+                        <div class="col-2 col-md-12">
+                            <img src="static/img/user-image.jpeg" alt="User Image" class="square-image w-100 rounded">
+                        </div>
+                        <div class="col-auto d-flex align-items-center justify-content-start">
+                            <div class="col-md-12">
+                                <p class="fw-bold mb-0">GortCapybara</p>
+                                <p><small class="text-body-secondary">8 reviews on account</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <form action="">
+                        <textarea class="form-control mb-2" id="exampleFormControlTextarea1" rows="12" placeholder="Content"></textarea>
+                        <button class="btn btn-primary float-end">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+
+        <div class="container-xxl"> <!-- Comments -->
+            <h2>Comments</h2>
+            <div class="comment">
+                <div class="row">
+                    <div class="col-auto">
+                        <img src="static/img/user-image.jpeg" alt="User Image" class="square-image comment-image rounded">
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-auto">
+                                <p class="fw-bold mb-0">NotGortCapybara</p>
+                            </div>
+                            <div class="col">
+                                <small class="text-body-secondary">12 Hours ago</small></p>
+                            </div>
+                        </div>
+                            
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, velit in non enim molestiae totam repellendus adipisci, ab iste consequatur, cum ipsam quis recusandae. Illum dolores laborum quis a suscipit!</p> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="row">
+                    <div class="col-auto">
+                        <img src="static/img/user-image.jpeg" alt="User Image" class="square-image comment-image rounded">
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-auto">
+                                <p class="fw-bold mb-0">NotGortCapybara</p>
+                            </div>
+                            <div class="col">
+                                <small class="text-body-secondary">12 Hours ago</small></p>
+                            </div>
+                        </div>
+                            
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, velit in non enim molestiae totam repellendus adipisci, ab iste consequatur, cum ipsam quis recusandae. Illum dolores laborum quis a suscipit!</p> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="row">
+                    <div class="col-auto">
+                        <img src="static/img/user-image.jpeg" alt="User Image" class="square-image comment-image rounded">
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-auto">
+                                <p class="fw-bold mb-0">NotGortCapybara</p>
+                            </div>
+                            <div class="col">
+                                <small class="text-body-secondary">12 Hours ago</small></p>
+                            </div>
+                        </div>
+                            
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, velit in non enim molestiae totam repellendus adipisci, ab iste consequatur, cum ipsam quis recusandae. Illum dolores laborum quis a suscipit!</p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Offcanvas Payment Screen -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Checkout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <form>
+                    <div class="offcanvas-title mb-3">
+                        <h5>Remembering Ghibli Songs</h5>
+                        <img src="static/img/Studio_Ghibli_Logo.jpg" class="w-100 mb-3 rounded">
+                        <input type="number" id="typeNumber" class="form-control" placeholder="Quantity"/>
+                        
+                        <div class="my-3">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Delivery Method</option>
+                                <option value="1">Deliver via SMS</option>
+                                <option value="2">Deliever via Email</option>
+                                <option value="3">Deliver via PDF</option>
+                            </select>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Refundable Ticket +$29.99
+                            </label>
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Payment Method</label>
                         <select class="form-select" aria-label="Default select example">
-                            <option selected>Delivery Method</option>
-                            <option value="1">Deliver via SMS</option>
-                            <option value="2">Deliever via Email</option>
-                            <option value="3">Deliver via PDF</option>
+                            <option value="1">Mastercard</option>
+                            <option value="2">Visa</option>
+                            <option value="3">Paypal</option>
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Card Holder</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Credit Card Number</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">CVV</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <label for="exampleInputPassword1" class="form-label">Expiry Date</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="MM" aria-label="MM" aria-describedby="basic-addon1">
+                        <span class="date-separator">/</span>
+                        <input type="text" class="form-control" placeholder="YY" aria-label="YY" aria-describedby="basic-addon1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Purchase</button>
+                </form>
+            </div>
+        </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Refundable Ticket +$29.99
-                        </label>
+        <div class="footer mt-5 bg-light">
+            <footer class="container-xxl p-2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold">About Us</h6>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum 
+                            asperiores impedit fuga sapiente natus libero pariatur! Quasi vel 
+                            quibusdam quaerat doloremque deserunt illo culpa adipisci impedit 
+                            voluptatum dignissimos! Quam, qui!
+                        </p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h6 class="fw-bold">Contact Us</h6>
+                        <ul class="list-unstyled">
+                            <li>0468134471</li>
+                            <li>Support@KeyMajor.com</li>
+                            <li>12 Imaginary Address 8141 Brisbane Australia </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h6 class="fw-bold">Useful Links</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link p-0" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link p-0" href="#">Events</a></li>
+                            <li class="nav-item"><a class="nav-link p-0" href="#">Create Event</a></li>
+                            <li class="nav-item"><a class="nav-link p-0" href="#">TrustPilot</a></li>
+                        </ul>
                     </div>
                 </div>
-                
-
-                <hr>
-                
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Payment Method</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="1">Mastercard</option>
-                        <option value="2">Visa</option>
-                        <option value="3">Paypal</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Card Holder</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Credit Card Number</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">CVV</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <label for="exampleInputPassword1" class="form-label">Expiry Date</label>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="MM" aria-label="MM" aria-describedby="basic-addon1">
-                    <span class="date-separator">/</span>
-                    <input type="text" class="form-control" placeholder="YY" aria-label="YY" aria-describedby="basic-addon1">
-                </div>
-                <button type="submit" class="btn btn-primary">Purchase</button>
-            </form>
+            </footer>
         </div>
-    </div>
-
-    <div class="footer mt-5 bg-light">
-        <footer class="container-xxl p-2">
-            <div class="row">
-                <div class="col-md-6">
-                    <h6 class="fw-bold">About Us</h6>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum 
-                        asperiores impedit fuga sapiente natus libero pariatur! Quasi vel 
-                        quibusdam quaerat doloremque deserunt illo culpa adipisci impedit 
-                        voluptatum dignissimos! Quam, qui!
-                    </p>
-                </div>
-
-                <div class="col-md-3">
-                    <h6 class="fw-bold">Contact Us</h6>
-                    <ul class="list-unstyled">
-                        <li>0468134471</li>
-                        <li>Support@KeyMajor.com</li>
-                        <li>12 Imaginary Address 8141 Brisbane Australia </li>
-                    </ul>
-                </div>
-
-                <div class="col-md-3">
-                    <h6 class="fw-bold">Useful Links</h6>
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link p-0" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link p-0" href="#">Events</a></li>
-                        <li class="nav-item"><a class="nav-link p-0" href="#">Create Event</a></li>
-                        <li class="nav-item"><a class="nav-link p-0" href="#">TrustPilot</a></li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
-    </div>
-</body>
+    </body>
 </html>
