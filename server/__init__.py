@@ -1,22 +1,43 @@
+import os
+
 #import flask - from the package import class
-from flask import Flask 
+from flask import Flask, render_template 
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
 db = SQLAlchemy()
 
-#create a function that creates a web application
+# create a function that creates a web application
 # a web server will run this web application
-def create_app():
+def create_app(test_config = None) -> Flask:
+	"""
+	The `create_app` function is responsible for creating the web application.
+	This function is also the entry point of web servers. You can run it by
+	typing `Flask --app server run`. This function returns a Flask object.
+	"""
+
 	app = Flask(__name__)  # this is the name of the module/package that is calling this app
-	# Should be set to false in a production environment
-	app.debug = True
-	app.secret_key = 'somesecretkey'
-	#set the app configuration data 
-	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sitedata.sqlite'
-	#initialize db with flask app
-	db.init_app(app)
+	app.debug = True # TODO: Set to false in production environment
+	app.secret_key = 'secretdevkey' 
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sitedata.sqlite' # set the app configuration data 
+
+	if test_config is None:
+		app.config.from_pyfile('config.py', silent=True)
+	else:
+		app.config.from_mapping(test_config)
+
+	# ensure the instance folder exists
+	try:
+		os.makedirs(app.instance_path)
+	except OSError:
+		pass
+
+	db.init_app(app) # initialize db with flask app
+
+	#config upload folder
+	UPLOAD_FOLDER = '/static/image'
+	app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
 
 	Bootstrap5(app)
 
@@ -44,6 +65,11 @@ def create_app():
 	app.register_blueprint(auth.auth_bp)
 
 	from . import events
-	app.register_blueprint(events.evbp)
+	app.register_blueprint(events.event_bp)
+
+	@app.errorhandler(404) 
+    # inbuilt function which takes error as parameter 
+	def not_found(e): 
+		return render_template("404.html", error=e)
 
 	return app

@@ -5,6 +5,6 @@ from . import db
 main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/')
-def index():
+def index() -> str:
     events = db.session.scalars(db.select(Event))
     return render_template('index.html', events = events)
