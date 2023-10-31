@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
-{% block header %}
+
+
+
+{% block content %}
+
     <main>
         <div class="banner py-3">
             <div class="banner-content container-xxl">
@@ -14,15 +18,13 @@
                     </div>
 
                     <div class="col d-none d-sm-block">
-                        <a href="event-page.html"><img src="static/img/Studio_Ghibli_Logo.jpg" class="shadow float-end hover-scale square-image banner-image" alt="..."></a>
+                        <a href="event-page.html"><img src="{{ url_for('static', filename='image/Studio_Ghibli_Logo.jpg') }}" class="shadow float-end hover-scale square-image banner-image" alt="..."></a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-{% endblock %}
 
-{% block content %}
     <div class="container-xxl">
         <div class="row">
             <h2>Browse By Category</h2>
@@ -33,11 +35,11 @@
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col my-2 my-sm-0">
-                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="static/img/Frame.png" alt="Calm"></a>
+                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="{{ url_for('static', filename='image/Frame.png') }}" alt="Calm"></a>
                         </div>
         
                         <div class="col my-2 my-sm-0">
-                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="static/img/Frame 1.png" alt="Anime"></a>
+                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="{{ url_for('static', filename='image/Frame 1.png') }}" alt="Anime"></a>
                         </div>
                     </div>
                 </div>
@@ -45,11 +47,11 @@
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col my-2 my-sm-0">
-                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="static/img/Frame 2.png" alt="Pop"></a>
+                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="{{ url_for('static', filename='image/Frame 2.png') }}" alt="Pop"></a>
                         </div>
         
                         <div class="col my-2 my-sm-0">
-                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="static/img/Frame 3.png" alt="Classical"></a>
+                            <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="{{ url_for('static', filename='image/Frame 3.png') }}" alt="Classical"></a>
                         </div>
                     </div>
                 </div>

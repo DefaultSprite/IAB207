@@ -15,9 +15,9 @@ event_bp = Blueprint('Event', __name__, url_prefix='/events')
 #     form = CommentForm()    
 #     return render_template('events/event-page.html', event=event, form=form)
 
-@event_bp.route('/eventcreation', methods=['GET', 'POST'])
+@event_bp.route('/event_creation', methods=['GET', 'POST'])
 @login_required
-def eventcreation():
+def event_creation():
 	print('Method type: ', request.method)
 	form = EventForm()
 	if form.validate_on_submit():
@@ -37,8 +37,8 @@ def eventcreation():
 		
 		print('Successfully created new travel destination', 'success')
 		#Always end with redirect when form is valid
-		return redirect(url_for('Event.eventcreation'))
-	return render_template('events/eventcreation.html', form=form)
+		return redirect(url_for('Event.event_creation'))
+	return render_template('events/event-creation.html', form=form)
 
 @event_bp.route('/update_event/<id>', methods=['GET','POST'])
 @login_required
@@ -66,6 +66,12 @@ def load_created_events():
 	id=current_user.id
 	events = db.session.query(Event).filter(Event.creator_id==id)
 	return render_template('events/my_events.html', events = events)
+
+
+@event_bp.route('/event_browser', methods=['GET'])
+def load_event_browser():
+	events = db.session.scalars(db.select(Event))
+	return render_template('events-browser.html', events = events)
 
 def check_upload_file(form):
 	#get file data from form  

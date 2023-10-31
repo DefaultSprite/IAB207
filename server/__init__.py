@@ -1,7 +1,7 @@
 import os
 
 #import flask - from the package import class
-from flask import Flask 
+from flask import Flask, render_template 
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -35,6 +35,10 @@ def create_app(test_config = None) -> Flask:
 
 	db.init_app(app) # initialize db with flask app
 
+	#config upload folder
+	UPLOAD_FOLDER = '/static/image'
+	app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
+
 	Bootstrap5(app)
 
 	#initialize the login manager
@@ -62,5 +66,10 @@ def create_app(test_config = None) -> Flask:
 
 	from . import events
 	app.register_blueprint(events.event_bp)
+
+	@app.errorhandler(404) 
+    # inbuilt function which takes error as parameter 
+	def not_found(e): 
+		return render_template("404.html", error=e)
 
 	return app
