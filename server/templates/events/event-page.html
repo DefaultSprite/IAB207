@@ -1,71 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="User Created Piano Performances"> 
-        <!-- Bootstrap CDN -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-        <!-- Favicon and StyleSheet -->
-        <link rel="stylesheet" href="style/style.css">
-        <link rel="icon" href="static/img/Logo.ico">
-        <title>KeyMajor</title>
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
-    </head>
+{% extends 'base.html' %}
 
+{% block content %}
     <body>
-        <nav class="navbar navbar-expand-xl fixed-top">
-            <div class="container-xxl">
-                <a class="navbar-brand" href="index.html">KeyMajor</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="events-browser.html">Events</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">My Events</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="event-creation.html">Create Event</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="event-bookings.html">Bookings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sign Out</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                    </form>
-                </div>
-            </div>  
-        </nav>
-
         <div class="container-xxl">
             <div class="row">
                 <div class="col-lg-8">
-                    <h2>Remembering Ghibli Songs</h2>
+                    <h2>{{ event.name }}</h2>
                     <div class="event-information mb-2">
-                        <p class="mb-0">Status: <span class="badge badge-open ms-1">Open</span></p>
+                        <p class="mb-0">Status: <span class="badge badge-open ms-1">{{ event.status }}</span></p>
                         <p class="mb-0">Tickets Available: 15,000</p>
                         <p class="mb-0">Hosted by: Joe Hisaishi</p>
                         <hr>
                     </div>
-                    
 
                     <h3>Event Summary</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, et accusantium necessitatibus sapiente ab enim repudiandae veritatis magnam minima repellat suscipit nulla sunt nam ut voluptates quas quisquam voluptate ea.</p>
@@ -80,7 +26,7 @@
                         <iframe src="https://www.youtube.com/embed/lg4i5xCMJpI" title="YouTube video" allowfullscreen></iframe>
                     </div>
                 </div>
-        
+
                 <div class="col-lg-4">
                     <h2>Ticket Types</h2>
                     <div class="card mb-3">
@@ -91,7 +37,7 @@
                                 <p class="card-text mb-0"><small class="text-body-secondary">Tickets Left: 5,000</small></p>
                                 <p class="card-text mb-0"><small class="text-body-secondary">Price: $125</small></p>
                             </div>
-                            
+
                             <a class="btn btn-primary mt-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                                 Purchase Ticket
                             </a>
@@ -161,7 +107,6 @@
             </div>
             <hr>
         </div>
-
 
         <div class="container-xxl"> <!-- Comments -->
             <h2>Comments</h2>
@@ -327,3 +272,5 @@
         </div>
     </body>
 </html>
+
+{% endblock %}

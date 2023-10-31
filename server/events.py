@@ -69,19 +69,19 @@ def load_created_events():
 	return render_template('events/my_events.html', events = events)
 
 @event_bp.route('/events', methods=['GET'])
-def load_events(): # Ambiguity between load_events and load_events. Not good in practice
+def load_events():
 	events = db.session.scalars(db.select(Event))
 	return render_template('events-browser.html', events = events)
 
-@event_bp.route('/events/<id>')
+@event_bp.route('/events/<id>', methods=['GET'])
 def show(id):
-    destination = db.session.scalar(db.select(Event).where(Event.id==id))
+    event = db.session.scalar(db.select(Event).where(Event.id==id))
     # create the comment form
     form = CommentForm()    
-    return render_template('events/event-page.html', destination=destination, form=form)
+    return render_template('events/event-page.html', event = event, form=form)
 
 def check_upload_file(form):
-	#get file data from form  
+	#get file data from form
 	fp = form.image.data
 	filename = fp.filename
 	#get the current path of the module file… store image file relative to this path  
