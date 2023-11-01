@@ -36,6 +36,7 @@ class EventForm(FlaskForm):
 	#description meets the length requirements
 	artist = StringField('Name of Artist/s', validators=[InputRequired()])
 	description = TextAreaField('Description', validators = [InputRequired()])
+	tags = TextAreaField('Add tags', validators = [InputRequired()])
 	venue_name = StringField('Name of Venue', validators=[InputRequired()])
 	address = StringField('Address of Venue', validators=[InputRequired()])
 	ticket_cost = DecimalField('Cost of Ticket', validators=[InputRequired()])
@@ -54,6 +55,7 @@ class EventUpdateForm(FlaskForm):
 	#description meets the length requirements
 	artist = StringField('Name of Artist/s', validators=[InputRequired()])
 	description = TextAreaField('Description', validators = [InputRequired()])
+	tags = TextAreaField('Add tags', validators = [InputRequired()])
 	venue_name = StringField('Name of Venue', validators=[InputRequired()])
 	address = StringField('Address of Venue', validators=[InputRequired()])
 	ticket_cost = DecimalField('Cost of Ticket', validators=[InputRequired()])

@@ -1,3 +1,4 @@
+from .models import Event, EventStatus, Comment, Status, User
 from flask import Blueprint, request, render_template, session, request, redirect, url_for, flash
 from .models import Event, EventStatus, Comment, Status
 from .forms import EventForm, EventUpdateForm, CommentForm
@@ -23,7 +24,7 @@ def event_creation():
 	if form.validate_on_submit():
 		#call the function that checks and returns image
 		db_file_path = check_upload_file(form)
-		event = Event(creator_id=current_user.id, name=form.name.data, description=form.description.data, 
+		event = Event(creator_id=current_user.id, name=form.name.data, description=form.description.data, tags = form.tags.data,
 							image=db_file_path, venue_name=form.venue_name.data, address=form.address.data, 
 							ticket_cost=form.ticket_cost.data, artist=form.artist.data, date=form.date.data, time=form.time.data, 
 							maxSeating=form.maxSeating.data, currentSeating=0)
@@ -49,6 +50,7 @@ def update_event(id):
 		event.name = form.name.data
 		event.artist = form.artist.data
 		event.description = form.description.data
+		event.tags = form.tags.data
 		event.venue_name = form.venue_name.data
 		event.ticket_cost = form.ticket_cost.data
 		event.date = form.date.data
@@ -65,12 +67,14 @@ def update_event(id):
 def load_created_events():
 	id=current_user.id
 	events = db.session.query(Event).filter(Event.creator_id==id)
+	
 	return render_template('events/my_events.html', events = events)
 
 @event_bp.route('/', methods=['GET'])
 def load_events():
 	events = db.session.scalars(db.select(Event))
-	return render_template('events-browser.html', events = events)
+	users = db.session.scalars(db.select(User))
+	return render_template('events-browser.html', events = events, users = users)
 
 @event_bp.route('/<id>', methods=['GET'])
 def show(id):
