@@ -1,5 +1,5 @@
 from flask import Blueprint, request, render_template, session, request, redirect, url_for
-from .models import Event, EventStatus, Comment, Status
+from .models import Event, EventStatus, Comment, Status, User
 from .forms import EventForm, EventUpdateForm, CommentForm
 from . import db
 import os
@@ -67,12 +67,14 @@ def update_event(id):
 def load_created_events():
 	id=current_user.id
 	events = db.session.query(Event).filter(Event.creator_id==id)
+	
 	return render_template('events/my_events.html', events = events)
 
 @event_bp.route('/events', methods=['GET'])
 def load_events(): # Ambiguity between load_events and load_events. Not good in practice
 	events = db.session.scalars(db.select(Event))
-	return render_template('events-browser.html', events = events)
+	users = db.session.scalars(db.select(User))
+	return render_template('events-browser.html', events = events, users = users)
 
 @event_bp.route('/events/<id>')
 def show(id):

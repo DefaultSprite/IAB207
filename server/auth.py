@@ -11,7 +11,7 @@ import typing
 auth_bp = Blueprint('auth', __name__)
 
 @auth_bp.route('/register', methods=['GET', 'POST'])
-def register() -> (Response | str):
+def register() -> (Response or str):
     register = RegisterForm()
     #the validation of form is fine, HTTP request is POST
     if (register.validate_on_submit()==True):
@@ -46,7 +46,7 @@ def register() -> (Response | str):
 
 # this is the hint for a login function
 @auth_bp.route('/login', methods=['GET', 'POST'])
-def authenticate() -> (Response | None | str): #view function
+def authenticate() -> (Response or None or str): #view function
     login_form = LoginForm()
     error=None
     if(login_form.validate_on_submit()==True):
