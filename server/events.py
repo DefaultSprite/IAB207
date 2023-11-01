@@ -1,12 +1,13 @@
-from flask import Blueprint, request, render_template, session, request, redirect, url_for
 from .models import Event, EventStatus, Comment, Status, User
+from flask import Blueprint, request, render_template, session, request, redirect, url_for, flash
+from .models import Event, EventStatus, Comment, Status
 from .forms import EventForm, EventUpdateForm, CommentForm
 from . import db
 import os
 from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
 
-event_bp = Blueprint('event', __name__)
+event_bp = Blueprint('event', __name__, url_prefix='/events')
 
 # @event_bp.route('/<id>')
 # def show(id):
@@ -61,7 +62,6 @@ def update_event(id):
 			return redirect(url_for('Event.load_created_events'))
 	return render_template('events/event-creation.html', form=form)
 
-
 @event_bp.route('/my_events', methods=['GET'])
 @login_required
 def load_created_events():
@@ -70,21 +70,21 @@ def load_created_events():
 	
 	return render_template('events/my_events.html', events = events)
 
-@event_bp.route('/events', methods=['GET'])
-def load_events(): # Ambiguity between load_events and load_events. Not good in practice
+@event_bp.route('/', methods=['GET'])
+def load_events():
 	events = db.session.scalars(db.select(Event))
 	users = db.session.scalars(db.select(User))
 	return render_template('events-browser.html', events = events, users = users)
 
-@event_bp.route('/events/<id>')
+@event_bp.route('/<id>', methods=['GET'])
 def show(id):
-    destination = db.session.scalar(db.select(Event).where(Event.id==id))
+    event = db.session.scalar(db.select(Event).where(Event.id==id))
     # create the comment form
     form = CommentForm()    
-    return render_template('events/event-page.html', destination=destination, form=form)
+    return render_template('events/event-page.html', event = event, form=form)
 
 def check_upload_file(form):
-	#get file data from form  
+	#get file data from form
 	fp = form.image.data
 	filename = fp.filename
 	#get the current path of the module file… store image file relative to this path  
@@ -96,3 +96,23 @@ def check_upload_file(form):
 	#save the file and return the db upload path  
 	fp.save(upload_path)
 	return db_upload_path
+
+@event_bp.route('/<id>/comment', methods=['GET', 'POST'])  
+@login_required
+def comment(id):  
+    form = CommentForm()  
+    #get the destination object associated to the page and the comment
+    event = db.session.scalar(db.select(Event).where(Event.id==id))
+    if form.validate_on_submit():  
+      #read the comment from the form
+      comment = Comment(text=form.text.data, event=event,
+                        user=current_user) 
+      #here the back-referencing works - comment.destination is set
+      # and the link is created
+      db.session.add(comment) 
+      db.session.commit() 
+      #flashing a message which needs to be handled by the html
+      flash('Your comment has been added', 'success')  
+      # print('Your comment has been added', 'success') 
+    # using redirect sends a GET request to destination.show
+    return redirect(url_for('event.show', id=id))

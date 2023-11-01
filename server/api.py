@@ -15,16 +15,16 @@ def create_event():
     json_dict = request.get_json()
     if not json_dict:
         return jsonify(message="No input data provided!"), 400
-    hotel = Event(name=json_dict['name'], description=json_dict['description'],
-        destination_id=json_dict['destination_id'])
+    event = Event(name=json_dict['name'], description=json_dict['description'],
+        destination_id=json_dict['event_id'])
     for room_json in json_dict['rooms']:
-        if "hotel_id" in room_json:
+        if "event_id" in room_json:
             room = db.session.scalar(db.select(Room).where(Room.id==room_json.id))
         else:
             room = Room(type=room_json['room_type'], num_rooms=room_json['num_rooms'],
                 description=room_json['room_description'], rate=room_json['room_rate'],
-                hotel_id=hotel.id)
-    db.session.add(hotel, room)
+                hotel_id=event.id)
+    db.session.add(event, room)
     db.session.commit()
     return jsonify(message='Successfully created new hotel!'), 201
 
