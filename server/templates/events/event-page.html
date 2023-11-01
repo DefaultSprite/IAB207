@@ -111,7 +111,7 @@
         </div>
 
         <div class="container-xxl"> <!-- Comments -->
-            {{ render_form(form,"/event/{0}/comment".format(event.id)) }}
+            {{ render_form(form,"/events/{0}/comment".format(event.id)) }}
             
             <h2>Comments</h2>
             {% for comment in event.comments %}

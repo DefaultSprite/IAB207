@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, session, request, redirect, url_for
+from flask import Blueprint, request, render_template, session, request, redirect, url_for, flash
 from .models import Event, EventStatus, Comment, Status
 from .forms import EventForm, EventUpdateForm, CommentForm
 from . import db
@@ -6,7 +6,7 @@ import os
 from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
 
-event_bp = Blueprint('event', __name__)
+event_bp = Blueprint('event', __name__, url_prefix='/events')
 
 # @event_bp.route('/<id>')
 # def show(id):
@@ -67,12 +67,12 @@ def load_created_events():
 	events = db.session.query(Event).filter(Event.creator_id==id)
 	return render_template('events/my_events.html', events = events)
 
-@event_bp.route('/events', methods=['GET'])
+@event_bp.route('/', methods=['GET'])
 def load_events():
 	events = db.session.scalars(db.select(Event))
 	return render_template('events-browser.html', events = events)
 
-@event_bp.route('/events/<id>', methods=['GET'])
+@event_bp.route('/<id>', methods=['GET'])
 def show(id):
     event = db.session.scalar(db.select(Event).where(Event.id==id))
     # create the comment form
@@ -92,3 +92,23 @@ def check_upload_file(form):
 	#save the file and return the db upload path  
 	fp.save(upload_path)
 	return db_upload_path
+
+@event_bp.route('/<id>/comment', methods=['GET', 'POST'])  
+@login_required
+def comment(id):  
+    form = CommentForm()  
+    #get the destination object associated to the page and the comment
+    event = db.session.scalar(db.select(Event).where(Event.id==id))
+    if form.validate_on_submit():  
+      #read the comment from the form
+      comment = Comment(text=form.text.data, event=event,
+                        user=current_user) 
+      #here the back-referencing works - comment.destination is set
+      # and the link is created
+      db.session.add(comment) 
+      db.session.commit() 
+      #flashing a message which needs to be handled by the html
+      flash('Your comment has been added', 'success')  
+      # print('Your comment has been added', 'success') 
+    # using redirect sends a GET request to destination.show
+    return redirect(url_for('event.show', id=id))
