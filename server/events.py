@@ -60,7 +60,6 @@ def update_event(id):
 			return redirect(url_for('Event.load_created_events'))
 	return render_template('events/event-creation.html', form=form)
 
-
 @event_bp.route('/my_events', methods=['GET'])
 @login_required
 def load_created_events():

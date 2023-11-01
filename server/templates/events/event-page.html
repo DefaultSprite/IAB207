@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% from 'bootstrap5/form.html' import render_form %}
+
 {% block content %}
     <body>
         <div class="container-xxl">
@@ -109,67 +111,29 @@
         </div>
 
         <div class="container-xxl"> <!-- Comments -->
+            {{ render_form(form,"/event/{0}/comment".format(event.id)) }}
+            
             <h2>Comments</h2>
+            {% for comment in event.comments %}
             <div class="comment">
                 <div class="row">
                     <div class="col-auto">
-                        <img src="static/img/user-image.jpeg" alt="User Image" class="square-image comment-image rounded">
+                        <img src="{{ comment.user.image }}" alt="User Image" class="square-image comment-image rounded">
                     </div>
                     <div class="col">
                         <div class="row">
                             <div class="col-auto">
-                                <p class="fw-bold mb-0">NotGortCapybara</p>
+                                <p class="fw-bold mb-0">{{ comment.user.namee }}</p>
                             </div>
                             <div class="col">
                                 <small class="text-body-secondary">12 Hours ago</small></p>
                             </div>
                         </div>
-                            
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, velit in non enim molestiae totam repellendus adipisci, ab iste consequatur, cum ipsam quis recusandae. Illum dolores laborum quis a suscipit!</p> 
+                        <p>{{ comment.text }}</p> 
                     </div>
                 </div>
             </div>
-
-            <div class="comment">
-                <div class="row">
-                    <div class="col-auto">
-                        <img src="static/img/user-image.jpeg" alt="User Image" class="square-image comment-image rounded">
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div class="col-auto">
-                                <p class="fw-bold mb-0">NotGortCapybara</p>
-                            </div>
-                            <div class="col">
-                                <small class="text-body-secondary">12 Hours ago</small></p>
-                            </div>
-                        </div>
-                            
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, velit in non enim molestiae totam repellendus adipisci, ab iste consequatur, cum ipsam quis recusandae. Illum dolores laborum quis a suscipit!</p> 
-                    </div>
-                </div>
-            </div>
-
-            <div class="comment">
-                <div class="row">
-                    <div class="col-auto">
-                        <img src="static/img/user-image.jpeg" alt="User Image" class="square-image comment-image rounded">
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div class="col-auto">
-                                <p class="fw-bold mb-0">NotGortCapybara</p>
-                            </div>
-                            <div class="col">
-                                <small class="text-body-secondary">12 Hours ago</small></p>
-                            </div>
-                        </div>
-                            
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, velit in non enim molestiae totam repellendus adipisci, ab iste consequatur, cum ipsam quis recusandae. Illum dolores laborum quis a suscipit!</p> 
-                    </div>
-                </div>
-            </div>
-        </div>
+            {% endfor %}
 
         <!-- Offcanvas Payment Screen -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -235,42 +199,6 @@
                 </form>
             </div>
         </div>
-
-        <div class="footer mt-5 bg-light">
-            <footer class="container-xxl p-2">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold">About Us</h6>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum 
-                            asperiores impedit fuga sapiente natus libero pariatur! Quasi vel 
-                            quibusdam quaerat doloremque deserunt illo culpa adipisci impedit 
-                            voluptatum dignissimos! Quam, qui!
-                        </p>
-                    </div>
-
-                    <div class="col-md-3">
-                        <h6 class="fw-bold">Contact Us</h6>
-                        <ul class="list-unstyled">
-                            <li>0468134471</li>
-                            <li>Support@KeyMajor.com</li>
-                            <li>12 Imaginary Address 8141 Brisbane Australia </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-md-3">
-                        <h6 class="fw-bold">Useful Links</h6>
-                        <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link p-0" href="#">Home</a></li>
-                            <li class="nav-item"><a class="nav-link p-0" href="#">Events</a></li>
-                            <li class="nav-item"><a class="nav-link p-0" href="#">Create Event</a></li>
-                            <li class="nav-item"><a class="nav-link p-0" href="#">TrustPilot</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </body>
-</html>
+    </div>
 
 {% endblock %}
