@@ -83,10 +83,10 @@
 
         <div class="container-xxl"> <!-- Comment Box -->
             <div>
-                <h2>Write a Comment for "Remembering Ghibli Songs"</h2>
+                <h2>Write a Comment for "{{ event.name }}"</h2>
                 <p>Write your thoughts about the event, what you liked/disliked about it and possibly what could have been done better.</p>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-2">
                     <div class="row mb-2">
                         <div class="col-2 col-md-12">
@@ -108,32 +108,31 @@
                 </div>
             </div>
             <hr>
-        </div>
+        </div> -->
 
-        <div class="container-xxl"> <!-- Comments -->
-            {{ render_form(form,"/events/{0}/comment".format(event.id)) }}
-            
-            <h2>Comments</h2>
-            {% for comment in event.comments %}
-            <div class="comment">
-                <div class="row">
-                    <div class="col-auto">
-                        <img src="{{ comment.user.image }}" alt="User Image" class="square-image comment-image rounded">
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div class="col-auto">
-                                <p class="fw-bold mb-0">{{ comment.user.namee }}</p>
-                            </div>
-                            <div class="col">
-                                <small class="text-body-secondary">12 Hours ago</small></p>
-                            </div>
+        {{ render_form(form,"/events/{0}/comment".format(event.id)) }}
+        
+        <h2>Comments</h2>
+        {% for comment in event.comments %}
+        <div class="comment">
+            <div class="row">
+                <div class="col-auto">
+                    <img src="{{ comment.user.image }}" alt="User Image" class="square-image comment-image rounded">
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-auto">
+                            <p class="fw-bold mb-0">{{ comment.user.fname }} {{comment.user.lname}}</p>
                         </div>
-                        <p>{{ comment.text }}</p> 
+                        <div class="col">
+                            <small class="text-body-secondary">12 Hours ago</small></p>
+                        </div>
                     </div>
+                    <p>{{ comment.text }}</p> 
                 </div>
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
 
         <!-- Offcanvas Payment Screen -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
