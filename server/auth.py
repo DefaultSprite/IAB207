@@ -4,6 +4,7 @@ from .models import User
 from .forms import LoginForm, RegisterForm
 from flask_login import login_user, login_required,logout_user
 from . import db
+from . events import check_upload_file
 
 import typing
 
@@ -15,12 +16,15 @@ def register() -> (Response or str):
     register = RegisterForm()
     #the validation of form is fine, HTTP request is POST
     if (register.validate_on_submit()==True):
+        db_file_path = check_upload_file(register)
         #get username, password and email from the form
         fname = register.f_name.data
         lname = register.l_name.data
         pwd = register.password.data
         email = register.email_id.data
         pnum = register.p_number.data
+        image = db_file_path
+
         #check if a user exists
         user = db.session.scalar(db.select(User).where(User.emailid==email))
         number = pnum.replace(" ", "")
@@ -34,7 +38,7 @@ def register() -> (Response or str):
         # don't store the password in plaintext!
         pwd_hash = generate_password_hash(pwd)
         #create a new User model object
-        new_user = User(fname=fname, lname = lname, pnumber = number, password_hash=pwd_hash, emailid=email)
+        new_user = User(fname=fname, lname = lname, pnumber = number, image = image, password_hash=pwd_hash, emailid=email)
         db.session.add(new_user)
         db.session.commit()
         #commit to the database and redirect to HTML page
