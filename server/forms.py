@@ -5,6 +5,7 @@ from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField
 from wtforms.validators import InputRequired, Length, Email, EqualTo
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 
+ALLOWED_FILE = {'PNG', 'JPG', 'JPEG', 'png', 'jpg', 'jpeg'}
 
 #creates the login information
 class LoginForm(FlaskForm):
@@ -24,10 +25,10 @@ class RegisterForm(FlaskForm):
 					EqualTo('confirm', message="Passwords should match"), Length(min=8)])
 	confirm = PasswordField("Confirm Password")
 		#submit button
+	image = FileField('Profile Image', validators=[
+		FileRequired(message = 'Image cannot be empty'),
+		FileAllowed(ALLOWED_FILE, message='Only supports png, jpg, JPG, PNG')])
 	submit = SubmitField("Register")
-
-
-ALLOWED_FILE = {'PNG', 'JPG', 'JPEG', 'png', 'jpg', 'jpeg'}
 
 
 class EventForm(FlaskForm):
