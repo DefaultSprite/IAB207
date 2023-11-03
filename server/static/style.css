@@ -16,10 +16,11 @@ h2 {
 }
 
 .navbar { /* LOOK AT THESE CSS VARIABLES ONLY AVAILBLE INSIDE THE NAVBAR CLASS!!! */
-    --bs-navbar-brand-color: #3592FF;
+    --bs-navbar-brand-color: #ffffff;
     --bs-navbar-brand-font-size: 28px;
-    --bs-navbar-brand-hover-color: #3592FF;
-    background-color: #ffffff;
+    --bs-navbar-brand-font-color: #ffffff;
+    --bs-navbar-brand-hover-color: #e1ff35;
+    background-color: #3592FF;
 }
 
 .navbar-brand {
