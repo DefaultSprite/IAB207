@@ -31,6 +31,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url_for('event.load_events') }}">Events</a>
                             </li>                     
+                            {% if current_user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url_for('event.load_created_events')}}">My Events</a>
                             </li>
@@ -41,7 +42,7 @@
                                 <a class="nav-link" href="event-bookings.html">Bookings</a>
                             </li>
                         </ul>
-                            {% if current_user.is_authenticated %}
+                            
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 Welcome {{current_user.fname}}
