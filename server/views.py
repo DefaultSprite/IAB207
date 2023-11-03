@@ -13,7 +13,6 @@ def index() -> str:
 def search():
     if request.args['search'] and request.args['search'] != "":
         print(request.args['search'])
-        print("hello world")
         query = "%" + request.args['search'] + "%"
         events = db.session.query(Event).filter(Event.name.like(query))
         
