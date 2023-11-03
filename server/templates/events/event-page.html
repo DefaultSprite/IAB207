@@ -10,8 +10,8 @@
                     <h2>{{ event.name }}</h2>
                     <div class="event-information mb-2">
                         <p class="mb-0">Status: <span class="badge badge-open ms-1">{{ event.status }}</span></p>
-                        <p class="mb-0">Tickets Available: 15,000</p>
-                        <p class="mb-0">Hosted by: Joe Hisaishi</p>
+                        <p class="mb-0">Tickets Available: {{ event.tickets }}</p>
+                        <p class="mb-0">Hosted by: {{ user.fname }} {{ user.lname }}</p>
                         <hr>
                     </div>
 

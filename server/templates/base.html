@@ -43,39 +43,37 @@
                             </li>
                         </ul>
                             
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Welcome {{current_user.fname}}
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                  <li><a class="dropdown-item" href="#">Profile</a></li>
-                                  <li><a class="dropdown-item" href="{{ url_for('auth.logout') }}">Sign Out</a></li>
-                                </ul>
-                            </div>
-                            <!--Testing drop down menu
-                            li class="nav-item">
-                                <a class="nav-link" href="#">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('auth.logout') }}">Sign Out</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link">Welcome {{current_user.fname}}</a>
-                            </li>    
-                            -->
-                            {% else %}
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Log In / Sign Up
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                  <li><a class="dropdown-item" href="{{ url_for('auth.authenticate') }}">Log in</a></li>
-                                  <li><a class="dropdown-item" href="{{ url_for('auth.register') }}">Register</a></li>
-                                </ul>
-                            </div>
-                            {% endif %}
-                            
-                        </ul>
+                        <div class="dropdown float-end">
+                            <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Welcome {{current_user.fname}}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('auth.logout') }}">Sign Out</a></li>
+                            </ul>
+                        </div>
+                        <!--Testing drop down menu
+                        li class="nav-item">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('auth.logout') }}">Sign Out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Welcome {{current_user.fname}}</a>
+                        </li>    
+                        -->
+                        {% else %}
+                        <div class="dropdown float-end">
+                            <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Log In / Sign Up
+                            </button>
+                            <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="{{ url_for('auth.authenticate') }}">Log in</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('auth.register') }}">Register</a></li>
+                            </ul>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>  
             </nav>

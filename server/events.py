@@ -117,8 +117,10 @@ def show(id):
 	update_status()
 	event = db.session.scalar(db.select(Event).where(Event.id==id))
     # create the comment form
+	print(f'The ID: {id} \n')
+	user = db.session.scalar(db.select(User).where(User.id==event.creator_id))
 	form = CommentForm()    
-	return render_template('events/event-page.html', event = event, form=form)
+	return render_template('events/event-page.html', event = event, form = form, user = user)
 
 def check_upload_file(form):
 	#get file data from form
