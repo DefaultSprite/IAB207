@@ -7,7 +7,6 @@ import os
 from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
 from datetime import date, datetime, time
-from wtforms import ValidationError
 
 event_bp = Blueprint('event', __name__, url_prefix='/events')
 
