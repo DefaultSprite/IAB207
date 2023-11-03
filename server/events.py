@@ -6,7 +6,6 @@ from . import db
 import os
 from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
-from datetime import datetime
 
 event_bp = Blueprint('event', __name__, url_prefix='/events')
 
@@ -118,14 +117,5 @@ def comment(id):
     # using redirect sends a GET request to destination.show
     return redirect(url_for('event.show', id=id))
 
-@event_bp.route('/')
-def home():
-	next_event = Event.query.filter(Event.date > datetime.now()).order_by(Event.date).first()
-	next_event_name = next_event.name
-	next_event_tag = next_event.tags
-	next_event_date = next_event.date
-	next_event_venue = next_event.venue_name
-	next_event_address = next_event.address
-	return render_template('index.html', next_event=next_event)
 
 

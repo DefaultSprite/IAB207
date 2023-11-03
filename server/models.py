@@ -78,10 +78,10 @@ class TicketOrder(db.Model):
 
 
 class Status(enum.Enum):
-    a = 'Active'
+    a = 'Open'
+    s = 'Sold Out'
     c = 'Cancelled'
     e = 'Expired'
-
 
 class EventStatus(db.Model):
     __tablename__ = 'event_status'
