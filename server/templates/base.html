@@ -29,13 +29,8 @@
                     <div class="collapse navbar-collapse w-auto" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-xl-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ url_for('main.index') }}">Home</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url_for('event.load_events') }}">Events</a>
-                            </li>
-                            {% if current_user.is_authenticated %}
-                            
+                            </li>                     
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url_for('event.load_created_events')}}">My Events</a>
                             </li>
@@ -45,7 +40,19 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="event-bookings.html">Bookings</a>
                             </li>
-                            <li class="nav-item">
+                        </ul>
+                            {% if current_user.is_authenticated %}
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Welcome {{current_user.fname}}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                                  <li><a class="dropdown-item" href="{{ url_for('auth.logout') }}">Sign Out</a></li>
+                                </ul>
+                            </div>
+                            <!--Testing drop down menu
+                            li class="nav-item">
                                 <a class="nav-link" href="#">Profile</a>
                             </li>
                             <li class="nav-item">
@@ -53,21 +60,27 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link">Welcome {{current_user.fname}}</a>
-                            </li>
+                            </li>    
+                            -->
                             {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('auth.authenticate') }}">Log in</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
-                            </li>
-                            
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Log In / Sign Up
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><a class="dropdown-item" href="{{ url_for('auth.authenticate') }}">Log in</a></li>
+                                  <li><a class="dropdown-item" href="{{ url_for('auth.register') }}">Register</a></li>
+                                </ul>
+                            </div>
                             {% endif %}
+<<<<<<< HEAD
                             
                         </ul>
                         <form class="d-flex" role="search" action="{{url_for('main.search')}}">
                             <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search">
                         </form>
+=======
+>>>>>>> e0c2ed13ea4c317638e9c98321399bd2ca82d28e
                     </div>
                 </div>  
             </nav>
@@ -94,41 +107,22 @@
     {% endblock %}
 
     <div class="footer mt-5 bg-light">
-        <footer class="container-xxl p-2">
-            <div class="row">
-                <div class="col-md-6">
-                    <h6 class="fw-bold">About Us</h6>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum 
-                        asperiores impedit fuga sapiente natus libero pariatur! Quasi vel 
-                        quibusdam quaerat doloremque deserunt illo culpa adipisci impedit 
-                        voluptatum dignissimos! Quam, qui!
-                    </p>
-                </div>
-
-                <div class="col-md-3">
-                    <h6 class="fw-bold">Contact Us</h6>
-                    <ul class="list-unstyled">
-                        <li>0468134471</li>
-                        <li>Support@KeyMajor.com</li>
-                        <li>12 Imaginary Address 8141 Brisbane Australia </li>
+        <footer class="footer mt-auto py-3 bg-light">
+            <div class="container-xxl">
+             <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                  <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('main.index') }}">Home</a>
+                      </li>
                     </ul>
+                    <span class="navbar-text">
+                        © 2023 KeyMajor, Inc
+                    </span>
+                  </div>
                 </div>
-
-                <div class="col-md-3">
-                    <h6 class="fw-bold">Useful Links</h6>
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link p-0" href="{{ url_for('main.index') }}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link p-0" href="#">Events</a></li>
-                        {% if current_user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link p-0" href="{{ url_for('event.event_creation') }}">Create Event</a></li>
-                        <li class="nav-item"><a class="nav-link p-0" href="#">TrustPilot</a></li>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link p-0" href="{{ url_for('auth.authenticate') }}">Log in</a></li>
-                        <li class="nav-item"><a class="nav-link p-0" href="{{ url_for('auth.register') }}">Register</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
+              </nav>   
             </div>
         </footer>
     </div>
