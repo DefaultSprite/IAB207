@@ -20,8 +20,14 @@
                 </div>
                 <div class="col-md-9">
                     <div class="card-body">
+                        {% if e.status.test() == 'Open'%}
                         <h5>{{e.name}} <span class="badge badge-open ms-1">{{e.status}}</span> </h5>
-                        <p class="card-text">{{e.date}}</p>
+                        {% elif e.status.test() == 'Expired' %}
+                        <h5>{{e.name}} <span class="badge bg-danger">{{e.status}}</span> </h5>
+                        {% else %}
+                        <h5>{{e.name}} <span class="badge bg-warning">{{e.status}}</span> </h5>
+                        {% endif %}
+                        <p class="card-text">{{e.time.strftime("%H:%M")}} {{e.date.strftime("%d/%m/%y")}}</p>
                         <p class="card-text">{{e.description}}</p>
                         {% set t = e.tags.split(',') %}
                         {% for tag in t -%}

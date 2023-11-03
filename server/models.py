@@ -45,7 +45,7 @@ class Event(db.Model):
 
     comments = db.relationship('Comment', backref='event')
     orders = db.relationship('TicketOrder', backref='event')
-    status = db.relationship('EventStatus', backref='event')
+    status = db.relationship('EventStatus', backref = 'event', uselist=False)
 	
     # string print method
     def __repr__(self) -> str:
@@ -88,6 +88,15 @@ class EventStatus(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
     status = db.Column(Enum(Status))
+
+    def test(self):
+        if(self.status.value=="Open"):
+            return "Open"
+        elif(self.status.value=="Expired"):
+            return "Expired"
+        elif(self.status.value=="Sold Out"):
+            return "Sold Out"
+        
 
     def __repr__(self) -> str:
         return f"{self.status.value}"

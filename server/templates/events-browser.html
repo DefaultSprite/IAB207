@@ -163,7 +163,13 @@
                             </div>
                             <div class="col-lg-9">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ event.name }}<span class="badge badge-open ms-1">{{ event.status }}</span></h5>
+                                    {% if event.status.test() == 'Open'%}
+                                    <h5>{{event.name}} <span class="badge badge-open ms-1">{{event.status}}</span> </h5>
+                                    {% elif event.status.test() == 'Expired' %}
+                                    <h5>{{event.name}} <span class="badge bg-danger">{{event.status}}</span> </h5>
+                                    {% else %}
+                                    <h5>{{event.name}} <span class="badge bg-warning">{{event.status}}</span> </h5>
+                                    {% endif %}
                                     <p class="card-text">{{ event.description }}</p>
                                     {% set t = event.tags.split(',') %}
                                     {% for tag in t -%}
