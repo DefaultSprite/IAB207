@@ -2,17 +2,18 @@
 
 {% block content %}
     <main>
+        <!--Up Next Event-->
+        
         <div class="banner py-3">
             <div class="banner-content container-xxl">
                 <div class="row">
                     <div class="banner-information col-auto">
-                        <h2>Remembering Ghibli Songs</h2>
-                        <p class="mb-0">Status: <span class="badge badge-open ms-md-1">"Open"</span></p>
+                        <h2>Up Next</h2>
+                        <p class="mb-0">Title:  <span class="badge badge-open ms-md-1">next_event_tag</span></p>
                         <p class="mb-0">Hosted by: Joe Hisaishi</p>
                         <p class="mb-2">Tickets Available: 10,000</p>
                         <a href="event-page.html" class="btn btn-primary">View Event</a>
                     </div>
-
                     <div class="col d-none d-sm-block">
                         <a href="event-page.html"><img src="{{ url_for('static', filename='image/Studio_Ghibli_Logo.jpg') }}" class="shadow float-end hover-scale square-image banner-image" alt="..."></a>
                     </div>
@@ -20,12 +21,10 @@
             </div>
         </div>
     </main>
-
     <div class="container-xxl">
         <div class="row">
             <h2>Browse By Category</h2>
         </div>
-        
         <div class="category-browser">
             <div class="row">
                 <div class="col-sm-6">
@@ -33,19 +32,16 @@
                         <div class="col my-2 my-sm-0">
                             <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="{{ url_for('static', filename='image/Frame.png') }}" alt="Calm"></a>
                         </div>
-        
                         <div class="col my-2 my-sm-0">
                             <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="{{ url_for('static', filename='image/Frame 1.png') }}" alt="Anime"></a>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col my-2 my-sm-0">
                             <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="{{ url_for('static', filename='image/Frame 2.png') }}" alt="Pop"></a>
                         </div>
-        
                         <div class="col my-2 my-sm-0">
                             <a href="events-browser.html"><img class="shadow w-100 hover-scale category-image" src="{{ url_for('static', filename='image/Frame 3.png') }}" alt="Classical"></a>
                         </div>
@@ -54,80 +50,30 @@
             </div>
         </div>
     </div>
-
     <div class="container-xxl my-2">
         <div class="row">
-            <div class="col-lg-8">
-                <h2>Top Performances</h3>
-                <!-- First Section -->
+            <div class="col-lg-">
+                <h2>Upcoming Performances</h3>
+                <!-- Events Cards-->
+                {% for event in events %}
                 <div class="row">
                     <div class="col-sm col-md-12">
                         <div class="card mb-3">
                             <div class="row g-0">
                                 <div class="col-md-3">
-                                    <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
+                                    <img class="shadow w-100 category-image" src="{{ event.image }}"></img>
                                 </div>
                                 <div class="col-md-9">
                                     <div class="card-body">
-                                        <h5 class="card-title">Remembering Ghibli Songs <span class="badge badge-closed ms-md-1">Closed</span></h5>
-                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
-                                        <p class="card-text mb-0"><small class="text-body-secondary">Hosted by: Joe Hisaishi</small></p>
-                                        <p class="card-text"><small class="text-body-secondary">Tickets Available: 10,000</small></p>
-                                        <a href="event-page.html" class="btn btn-primary">View Event</a>
+                                        <h5 class="card-title">{{ event.name }}<span class="badge badge-closed ms-md-1">{{ event.tags }}</span></h5>
+                                        <p class="card-text">{{ event.description }}</p>
+                                        <a href="/events/{{event.id}}" class="btn btn-primary">View Event</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="col-sm col-md-12">
-                        <div class="card mb-3">
-                            <div class="row g-0">
-                                <div class="col-md-3">
-                                    <img src="static/img/Studio_Ghibli_Logo.jpg" class="img-fluid object-fit-cover h-100 rounded-start" alt="Remembering Ghibli Songs">
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Remembering Ghibli Songs <span class="badge badge-inactive ms-md-1">Inactive</span></h5>
-                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis nisi voluptate, velit voluptas eligendi perspiciatis fuga facere aperiam, saepe quisquam ullam eaque et id nihil dolore doloremque, in iusto.</p>
-                                        <p class="card-text mb-0"><small class="text-body-secondary">Hosted by: Joe Hisaishi</small></p>
-                                        <p class="card-text"><small class="text-body-secondary">Tickets Available: 10,000</small></p>
-                                        <a href="event-page.html" class="btn btn-primary">View Event</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="announcements col-lg-4">
-                <h2>Announcements</h2>
-
-                <div class="card my-2">
-                    <div class="card-body">
-                        <h5 class="card-title">Setting up and renting a venue</h5>
-                        <p class="card-text">This goes in detail on how you can rent a venue for your performances.</p>
-                        <a href="#" class="card-link">Article Link</a>
-                    </div>
-                </div>
-    
-                <div class="card my-2">
-                    <div class="card-body">
-                        <h5 class="card-title">Announcement 2</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quasi totam adipisci animi, eius neque.</p>
-                        <a href="#" class="card-link">Announcement link</a>
-                    </div>
-                </div>
-
-                <div class="card my-2">
-                    <div class="card-body">
-                        <h5 class="card-title">Announcement 3</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quasi totam adipisci animi, eius neque.</p>
-                        <a href="#" class="card-link">Announcement link</a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
