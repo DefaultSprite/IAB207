@@ -70,8 +70,10 @@ class TicketOrder(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ticketNum = db.Column(db.Integer)
     totalCost = db.Column(db.Double)
-    Event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    date_ordered = db.Column(db.Date)
+    time_ordered = db.Column(db.Time)
 
     def __repr__(self) -> str:
         return f"Name: {self.ticketNum}"

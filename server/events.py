@@ -1,6 +1,6 @@
 from .models import Event, EventStatus, Comment, Status, User
 from flask import Blueprint, request, render_template, session, request, redirect, url_for, flash
-from .models import Event, EventStatus, Comment, Status
+from .models import Event, EventStatus, Comment, Status, TicketOrder
 from .forms import EventForm, EventUpdateForm, CommentForm
 from . import db
 import os
@@ -135,6 +135,15 @@ def check_upload_file(form):
 	#save the file and return the db upload path  
 	fp.save(upload_path)
 	return db_upload_path
+
+@event_bp.route('/bookings', methods=['GET'])
+@login_required
+def load_bookings():
+	id=current_user.id
+	ticket_order = db.session.query(TicketOrder).where(User.id == id)
+	events = db.session.query(Event).where(Event.id == ticket_order.event_id)
+	
+	return render_template('events/event-bookings.html', events = events)
 
 @event_bp.route('/<id>/comment', methods=['GET', 'POST'])  
 @login_required
