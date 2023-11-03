@@ -6,6 +6,8 @@ from . import db
 import os
 from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
+from datetime import date, datetime, time
+from wtforms import ValidationError
 
 event_bp = Blueprint('event', __name__, url_prefix='/events')
 
@@ -16,12 +18,42 @@ event_bp = Blueprint('event', __name__, url_prefix='/events')
 #     form = CommentForm()    
 #     return render_template('events/event-page.html', event=event, form=form)
 
+def update_status():
+	e = db.session.query(Event).filter(Event.date <= date.today())
+	for ev in e:
+		if(ev.date==date.today()):
+			if(ev.time.strftime("%H:%M") >= datetime.now().strftime("%H:%M")):
+				continue
+			if(ev.status == Status.e):
+				continue
+		s = db.session.scalar(db.select(EventStatus).where(EventStatus.Event_id==ev.id))
+		s.status = Status.e
+	seat = db.session.query(Event).filter(Event.currentSeating==Event.maxSeating)
+	for i in seat:
+		k = db.session.scalar(db.select(EventStatus).where(EventStatus.Event_id==i.id))
+		if((k.status==Status.e) or (k.status==Status.s)):
+			continue
+		k.status = Status.s
+	db.session.commit()
+
+def validate_date(d, t):
+	if(d < date.today()):
+		flash('Invalid date')
+		return False
+	if((d == date.today()) and (t.strftime("%H:%M") < datetime.now().strftime("%H:%M"))):
+		flash('Invalid date')
+		return False
+	else:
+		return True
+
 @event_bp.route('/event_creation', methods=['GET', 'POST'])
 @login_required
 def event_creation():
 	print('Method type: ', request.method)
 	form = EventForm()
 	if form.validate_on_submit():
+		if (not validate_date(form.date.data, form.time.data)):
+			return redirect(url_for('event.event_creation'))
 		#call the function that checks and returns image
 		db_file_path = check_upload_file(form)
 		event = Event(creator_id=current_user.id, name=form.name.data, description=form.description.data, tags = form.tags.data,
@@ -29,6 +61,7 @@ def event_creation():
 							ticket_cost=form.ticket_cost.data, artist=form.artist.data, date=form.date.data, time=form.time.data, 
 							maxSeating=form.maxSeating.data, currentSeating=0)
 		# add the object to the db session
+		
 		db.session.add(event)
 		# commit to the database
 		db.session.flush()
@@ -36,7 +69,7 @@ def event_creation():
 		db.session.add(stat)
 		db.session.commit()
 		
-		print('Successfully created new travel destination', 'success')
+		print('Successfully created new event', 'success')
 		#Always end with redirect when form is valid
 		return redirect(url_for('event.event_creation'))
 	return render_template('events/event-creation.html', form=form)
@@ -47,6 +80,8 @@ def update_event(id):
 	event = db.session.scalar(db.select(Event).where(Event.id==id))
 	form = EventUpdateForm(obj=event)
 	if form.validate_on_submit():
+		if (not validate_date(form.date.data, form.time.data)):
+			return redirect(url_for('event.load_created_events'))
 		event.name = form.name.data
 		event.artist = form.artist.data
 		event.description = form.description.data
@@ -58,13 +93,14 @@ def update_event(id):
 		event.maxSeating = form.maxSeating.data
 		if(form.image.data != event.image):
 			event.image = check_upload_file(form)
-			db.session.commit()
-			return redirect(url_for('Event.load_created_events'))
+		db.session.commit()
+		return redirect(url_for('event.load_created_events'))
 	return render_template('events/event-creation.html', form=form)
 
 @event_bp.route('/my_events', methods=['GET'])
 @login_required
 def load_created_events():
+	update_status()
 	id=current_user.id
 	events = db.session.query(Event).filter(Event.creator_id==id)
 	
@@ -72,16 +108,18 @@ def load_created_events():
 
 @event_bp.route('/', methods=['GET'])
 def load_events():
+	update_status()
 	events = db.session.scalars(db.select(Event))
 	users = db.session.scalars(db.select(User))
 	return render_template('events-browser.html', events = events, users = users)
 
 @event_bp.route('/<id>', methods=['GET'])
 def show(id):
-    event = db.session.scalar(db.select(Event).where(Event.id==id))
+	update_status()
+	event = db.session.scalar(db.select(Event).where(Event.id==id))
     # create the comment form
-    form = CommentForm()    
-    return render_template('events/event-page.html', event = event, form=form)
+	form = CommentForm()    
+	return render_template('events/event-page.html', event = event, form=form)
 
 def check_upload_file(form):
 	#get file data from form
