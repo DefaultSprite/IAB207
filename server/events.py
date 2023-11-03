@@ -140,9 +140,9 @@ def check_upload_file(form):
 @login_required
 def load_bookings():
 	id=current_user.id
-	ticket_order = db.session.query(TicketOrder).where(User.id == id)
-	events = db.session.query(Event).where(Event.id == ticket_order.event_id)
-	
+	ticket_order = db.session.scalar(db.select(TicketOrder).where(TicketOrder.id == id))
+	events = db.session.scalar(db.select(Event).where(Event.id == ticket_order.event_id))
+
 	return render_template('events/event-bookings.html', events = events)
 
 @event_bp.route('/<id>/comment', methods=['GET', 'POST'])  
